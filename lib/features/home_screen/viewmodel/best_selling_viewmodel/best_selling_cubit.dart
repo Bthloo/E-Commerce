@@ -1,0 +1,41 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/models/product_item.dart';
+
+part 'best_selling_state.dart';
+
+class BestSellingCubit extends Cubit<BestSellingState> {
+  BestSellingCubit() : super(BestSellingInitial());
+  static BestSellingCubit get(context) => BlocProvider.of(context);
+  List<ProductItemModel> bestSelling = [
+    ProductItemModel(
+        title: 'Long Sleeve Dress',
+        description: "This is a long sleeve dress with a round neck and a belt to tie around the waist",
+        price: '1200 LE',
+        image: 'assets/images/bestSale.png'
+    ),
+    ProductItemModel(
+        title: 'Turtleneck Sweater',
+        description: "This is a turtleneck sweater with a round neck and a belt to tie around the waist",
+        price: '1500 LE',
+        image: 'assets/images/women3.png'
+    ),
+    ProductItemModel(
+        title: 'Sport Wear Set',
+        description: "This is a sport wear set with a round neck and a belt to tie around the waist",
+        price: '700 LE',
+        image: 'assets/images/women2.png'
+    )
+  ];
+
+  void getBestSelling() {
+    emit(BestSellingLoading());
+    try {
+      emit(BestSellingLoaded(bestSelling));
+    } catch (e) {
+      emit(BestSellingError(e.toString()));
+    }
+  }
+
+}
