@@ -17,10 +17,10 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 100.h,
-      child: GridView.builder(
+      height: 110.h,
+      child: ListView.builder(
         itemCount: categoryItems.length,
-
+        shrinkWrap: true,
         itemBuilder: (context, index) {
           return CategoryItem(
               onTap: () {
@@ -49,14 +49,14 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
         scrollDirection: Axis.horizontal,
 
 
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-          //crossAxisSpacing: 10.0,
-            mainAxisSpacing: 0,
-          childAspectRatio: 1.13,
-
-
-        ),
+        // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        //   crossAxisCount: 1,
+        //   //crossAxisSpacing: 10.0,
+        //     mainAxisSpacing: 0,
+        //   childAspectRatio: 1.13,
+        //
+        //
+        // ),
       ),
     );
   }

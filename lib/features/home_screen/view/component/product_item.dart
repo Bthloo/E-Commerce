@@ -16,7 +16,6 @@ final String id;
   @override
   Widget build(BuildContext context) {
     return Column(
-
       children: [
         Hero(
           tag : "$id$image",
@@ -31,7 +30,6 @@ final String id;
                     image
                 ),
                 fit: BoxFit.cover,
-
               ),
             ),
           ),
@@ -44,16 +42,16 @@ final String id;
             children: [
               Text(
                 title,
-                style: TextStyle(
-                  fontSize: 12.sp,
+                style: const TextStyle(
+                  fontSize: 12,
                   overflow: TextOverflow.ellipsis,
 
                 ),
               ),
               Text(
                 price,
-                style: TextStyle(
-                  fontSize: 16.sp,
+                style: const TextStyle(
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                   overflow: TextOverflow.ellipsis,
                 ),

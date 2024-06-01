@@ -4,7 +4,6 @@ class ProductItemModel {
   final String price;
   final String image;
   final String id;
-
   ProductItemModel({
     required this.title,
     required this.description,

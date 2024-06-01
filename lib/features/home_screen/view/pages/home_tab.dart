@@ -28,7 +28,9 @@ class HomeTab extends StatelessWidget {
             child: BlocBuilder<BestSellingCubit, BestSellingState>(
               builder: (context, state) {
                 if(state is BestSellingLoading) {
-                  return const Center(child: CircularProgressIndicator(),);
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
                 }else if(state is BestSellingError) {
                   return Center(child: Text(state.message),);
                 }else if(state is BestSellingLoaded) {
@@ -42,6 +44,7 @@ class HomeTab extends StatelessWidget {
               },
             ),
           ),
+
           // SizedBox(height: 30.h),
           // BlocProvider(
           //   create: (context) =>

@@ -31,8 +31,8 @@ class ProductsListview extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(
-                  fontSize: 20.sp,
+              style: const TextStyle(
+                  fontSize: 20,
                   fontWeight: FontWeight.bold
               ),
             ),
@@ -40,11 +40,11 @@ class ProductsListview extends StatelessWidget {
               onPressed: (){
 
               },
-              child: Text(
+              child: const Text(
                 "Show All",
                 style: TextStyle(
-                  fontSize: 16.sp,
-                  color: const Color(0xff3A2C27),
+                  fontSize: 16,
+                  color: Color(0xff3A2C27),
                 ),
               ),
             ),
@@ -53,7 +53,7 @@ class ProductsListview extends StatelessWidget {
         SizedBox(height: 20.h),
         SizedBox(
           width: double.infinity,
-          height: 247.h,
+          height: 250.h,
           child: ListView.separated(
             separatorBuilder: (context, index) {
               return SizedBox(width: 10.w);
@@ -76,7 +76,10 @@ class ProductsListview extends StatelessWidget {
                  );
                 },
                   child: Padding(
-                    padding: const EdgeInsets.all(5.0),
+                    padding:  EdgeInsets.symmetric(
+                        horizontal: 5.0.w,
+                        vertical: 5.0.h
+                    ),
                     child: ProductItem(
                         id: products[index].id,
                         title:  products[index].title,

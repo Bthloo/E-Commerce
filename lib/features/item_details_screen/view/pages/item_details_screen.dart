@@ -1,3 +1,4 @@
+import 'package:b_commerce/core/general_components/color_helper.dart';
 import 'package:b_commerce/core/models/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,7 +23,10 @@ static const String routeName = 'item_details_screen';
 
         child: CustomScrollView(
           slivers: [
+
             SliverAppBar(
+
+
               systemOverlayStyle: SystemUiOverlayStyle.dark,
               backgroundColor: Colors.transparent,
               surfaceTintColor: Colors.transparent,
@@ -55,7 +59,7 @@ static const String routeName = 'item_details_screen';
                 ),
                 SizedBox(width: 10.w),
               ],
-        
+              leadingWidth: 50.w,
               leading: Row(
                 children: [
                   SizedBox(width: 10.w),
@@ -65,9 +69,11 @@ static const String routeName = 'item_details_screen';
                       Navigator.pop(context);
                     },
                     child: Container(
-                      padding: const EdgeInsets.all(5),
+                      padding:  EdgeInsets.symmetric(
+                         horizontal:  5.w,
+                        vertical: 5.h
+                      ),
                       decoration: BoxDecoration(
-        
                         borderRadius: BorderRadius.circular(50),
                         color: const Color(0xffFFFFFF),
                         //color:  Colors.black,
@@ -82,10 +88,10 @@ static const String routeName = 'item_details_screen';
                       ),
                       child: const Icon(
                         Icons.arrow_back_ios_new,
-        
+
                         size: 30,
                       ),
-        
+
                     ),
                   ),
                 ],
@@ -118,15 +124,15 @@ static const String routeName = 'item_details_screen';
                       children: [
                         Text(
                           args.title,
-                          style: TextStyle(
-                            fontSize: 20.sp,
+                          style: const TextStyle(
+                            fontSize: 20,
                             fontWeight: FontWeight.bold
                           ),
                         ),
                         Text(
                           args.price,
-                          style: TextStyle(
-                              fontSize: 25.sp,
+                          style: const TextStyle(
+                              fontSize: 25,
                               fontWeight: FontWeight.bold
                           ),
                         ),
@@ -137,7 +143,7 @@ static const String routeName = 'item_details_screen';
                       unratedColor: const Color(0xff508A7B).withOpacity(.2),
                       direction: Axis.horizontal,
                       itemCount: 5,
-                      itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      itemPadding:  EdgeInsets.symmetric(horizontal: 4.0.w),
                       itemBuilder: (context, _) => const Icon(
                         Icons.star,
                         color: Color(0xff508A7B),
@@ -155,18 +161,18 @@ static const String routeName = 'item_details_screen';
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.r),
+                              borderRadius: BorderRadius.circular(15),
                               color:  Colors.grey.shade200,
                             ),
                             child: DropdownMenu(
-                            label:  Text("Color",style: TextStyle(
-                              fontSize: 16.sp,
+                            label:  const Text("Color",style: TextStyle(
+                              fontSize: 16,
                               fontWeight: FontWeight.w600
                             ),),
                               menuStyle: MenuStyle(
                                 shape: WidgetStatePropertyAll(
                                   RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15.r),
+                                    borderRadius: BorderRadius.circular(15),
                                   )
                                 ),
                                 backgroundColor: const WidgetStatePropertyAll(
@@ -192,18 +198,20 @@ static const String routeName = 'item_details_screen';
                           ),
                           Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.r),
+                              borderRadius: BorderRadius.circular(15),
                               color:  Colors.grey.shade200,
                             ),
                             child: DropdownMenu(
-                                label:  Text("Size",style: TextStyle(
-                                    fontSize: 16.sp,
+                                label:  const Text(
+                                  "Size",
+                                  style: TextStyle(
+                                    fontSize: 16,
                                     fontWeight: FontWeight.w600
                                 ),),
                                 menuStyle: MenuStyle(
                                   shape: WidgetStatePropertyAll(
                                       RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15.r),
+                                        borderRadius: BorderRadius.circular(15),
                                       )
                                   ),
                                   backgroundColor: const WidgetStatePropertyAll(
@@ -247,18 +255,22 @@ static const String routeName = 'item_details_screen';
                           color: Colors.grey.shade200,
                         ),
                       ),
-                        title: Text("Description",
+                        title: const Text(
+                          "Description",
                          style: TextStyle(
-                        fontSize: 18.sp,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold
                           ),),
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(15.0),
+                          padding:  EdgeInsets.symmetric(
+                              horizontal: 15.0.w,
+                            vertical: 15.0.h
+                          ),
                           child: Text(
                             args.description,
-                            style: TextStyle(
-                              fontSize: 16.sp,
+                            style: const TextStyle(
+                              fontSize: 16,
                             ),
                           ),
                         ),
@@ -281,14 +293,18 @@ static const String routeName = 'item_details_screen';
                           color: Colors.grey.shade200,
                         ),
                       ),
-                      title: Text("Reviews",
+                      title: const Text(
+                        "Reviews",
                         style: TextStyle(
-                            fontSize: 18.sp,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold
                         ),),
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(15.0),
+                          padding:  EdgeInsets.symmetric(
+                              horizontal: 15.0.w,
+                              vertical: 15.0.h
+                          ),
                           child: Column(
                             children: [
                               Row(
@@ -297,20 +313,20 @@ static const String routeName = 'item_details_screen';
                                   Row(
                                          crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          Text(
+                                          const Text(
                                            "3.5",
                                             style: TextStyle(
-                                              fontSize: 40.sp,
-                                              color: const Color(0xff231F20),
+                                              fontSize: 40,
+                                              color: Color(0xff231F20),
                                               fontWeight: FontWeight.bold
                                           ),
                                           ),
                                           SizedBox(width: 5.w),
-                                          Text(
+                                          const Text(
                                              "OUT OF 5",
                                             style: TextStyle(
-                                              fontSize: 11.sp,
-                                              color: const Color(0xff8A8A8F),
+                                              fontSize: 11,
+                                              color: Color(0xff8A8A8F),
                                               //fontWeight: FontWeight.bold
                                             ),
                                           ),
@@ -337,9 +353,11 @@ static const String routeName = 'item_details_screen';
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("5",style: TextStyle(
-                                    fontSize: 16.sp,
-                                    color:  const Color(0xff8A8A8F),
+                                  const Text(
+                                    "5",
+                                    style: TextStyle(
+                                    fontSize: 16,
+                                    color:  Color(0xff8A8A8F),
                                   ),),
                                   SizedBox(width: 5.w),
                                   const Icon(
@@ -356,10 +374,8 @@ static const String routeName = 'item_details_screen';
                                     ),
                                     child: Expanded(
                                       child: Slider(
-
                                         inactiveColor:  const Color(0xffEFF0F1),
                                         autofocus: false,
-
                                         thumbColor: Colors.transparent,
                                         overlayColor: const WidgetStatePropertyAll(
                                             Colors.transparent
@@ -375,8 +391,8 @@ static const String routeName = 'item_details_screen';
                                       ),
                                     ),
                                   ),
-                                  Text("20%",style: TextStyle(
-                                    fontSize: 12.sp,
+                                  const Text("20%",style: TextStyle(
+                                    fontSize: 12,
                                     color:  Colors.black,
                                   ),),
 
@@ -387,9 +403,9 @@ static const String routeName = 'item_details_screen';
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("4",style: TextStyle(
-                                    fontSize: 16.sp,
-                                    color:  const Color(0xff8A8A8F),
+                                  const Text("4",style: TextStyle(
+                                    fontSize: 16,
+                                    color:  Color(0xff8A8A8F),
                                   ),),
                                   SizedBox(width: 5.w),
                                   const Icon(
@@ -425,8 +441,8 @@ static const String routeName = 'item_details_screen';
                                       ),
                                     ),
                                   ),
-                                  Text("30%",style: TextStyle(
-                                    fontSize: 12.sp,
+                                  const Text("30%",style: TextStyle(
+                                    fontSize: 12,
                                     color:  Colors.black,
                                   ),),
 
@@ -437,9 +453,9 @@ static const String routeName = 'item_details_screen';
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("3",style: TextStyle(
-                                    fontSize: 16.sp,
-                                    color:  const Color(0xff8A8A8F),
+                                  const Text("3",style: TextStyle(
+                                    fontSize: 16,
+                                    color:  Color(0xff8A8A8F),
                                   ),),
                                   SizedBox(width: 5.w),
                                   const Icon(
@@ -475,8 +491,8 @@ static const String routeName = 'item_details_screen';
                                       ),
                                     ),
                                   ),
-                                  Text("20%",style: TextStyle(
-                                    fontSize: 12.sp,
+                                  const Text("20%",style: TextStyle(
+                                    fontSize: 12,
                                     color:  Colors.black,
                                   ),),
 
@@ -487,9 +503,9 @@ static const String routeName = 'item_details_screen';
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("2",style: TextStyle(
-                                    fontSize: 16.sp,
-                                    color:  const Color(0xff8A8A8F),
+                                  const Text("2",style: TextStyle(
+                                    fontSize: 16,
+                                    color:  Color(0xff8A8A8F),
                                   ),),
                                   SizedBox(width: 5.w),
                                   const Icon(
@@ -525,11 +541,10 @@ static const String routeName = 'item_details_screen';
                                       ),
                                     ),
                                   ),
-                                  Text("10%",style: TextStyle(
-                                    fontSize: 12.sp,
+                                  const Text("10%",style: TextStyle(
+                                    fontSize: 12,
                                     color:  Colors.black,
                                   ),),
-
                                 ],
                               ),
                               SizedBox(height: 10.h),
@@ -537,9 +552,9 @@ static const String routeName = 'item_details_screen';
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text("1",style: TextStyle(
-                                    fontSize: 16.sp,
-                                    color:  const Color(0xff8A8A8F),
+                                  const Text("1",style: TextStyle(
+                                    fontSize: 16,
+                                    color:  Color(0xff8A8A8F),
                                   ),),
                                   SizedBox(width: 5.w),
                                   const Icon(
@@ -556,10 +571,8 @@ static const String routeName = 'item_details_screen';
                                     ),
                                     child: Expanded(
                                       child: Slider(
-
                                         inactiveColor:  const Color(0xffEFF0F1),
                                         autofocus: false,
-
                                         thumbColor: Colors.transparent,
                                         overlayColor: const WidgetStatePropertyAll(
                                             Colors.transparent
@@ -575,8 +588,8 @@ static const String routeName = 'item_details_screen';
                                       ),
                                     ),
                                   ),
-                                  Text("10%",style: TextStyle(
-                                    fontSize: 12.sp,
+                                  const Text("10%",style: TextStyle(
+                                    fontSize: 12,
                                     color:  Colors.black,
                                   ),),
 
@@ -586,10 +599,10 @@ static const String routeName = 'item_details_screen';
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                   Text("35 Review",
+                                   const Text("35 Review",
                                     style: TextStyle(
-                                      fontSize: 16.sp,
-                                      color:  const Color(0xff8A8A8F),
+                                      fontSize: 16,
+                                      color:  Color(0xff8A8A8F),
                                     ),),
                                     TextButton(
                                     onPressed: (){
@@ -651,9 +664,9 @@ static const String routeName = 'item_details_screen';
                                                         ElevatedButton(
                                                           style: ButtonStyle(
                                                             padding: WidgetStateProperty.all<EdgeInsetsGeometry>
-                                                              (const EdgeInsets.symmetric(
-                                                                vertical: 10,
-                                                                horizontal: 50
+                                                              ( EdgeInsets.symmetric(
+                                                                vertical: 10.h,
+                                                                horizontal: 50.w
                                                             )
                                                             ),
                                                             shape: WidgetStateProperty.all<RoundedRectangleBorder>(
@@ -680,11 +693,11 @@ static const String routeName = 'item_details_screen';
                                           },
                                       );
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       "WRITE A REVIEW",
                                       style: TextStyle(
-                                        fontSize: 16.sp,
-                                        color: const Color(0xff3A2C27),
+                                        fontSize: 16,
+                                        color: Color(0xff3A2C27),
                                       ),
                                     ),
                                   ),
@@ -700,9 +713,9 @@ static const String routeName = 'item_details_screen';
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text("John Doe",
+                                      const Text("John Doe",
                                         style: TextStyle(
-                                          fontSize: 18.sp,
+                                          fontSize: 18,
                                           fontWeight: FontWeight.bold
                                         ),),
                                       RatingBarIndicator(
@@ -726,10 +739,10 @@ static const String routeName = 'item_details_screen';
                                 ],
                               ),
                               SizedBox(height: 20.h),
-                              Text(
+                              const Text(
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget nunc",
                               style: TextStyle(
-                                fontSize: 16.sp,
+                                fontSize: 16,
                               ),
                               ),
                               SizedBox(height: 36.h),
@@ -742,9 +755,9 @@ static const String routeName = 'item_details_screen';
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text("John Doe",
+                                      const Text("John Doe",
                                         style: TextStyle(
-                                            fontSize: 18.sp,
+                                            fontSize: 18,
                                             fontWeight: FontWeight.bold
                                         ),),
                                       RatingBarIndicator(
@@ -768,10 +781,10 @@ static const String routeName = 'item_details_screen';
                                 ],
                               ),
                               SizedBox(height: 20.h),
-                              Text(
+                              const Text(
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget nunc",
                                 style: TextStyle(
-                                  fontSize: 16.sp,
+                                  fontSize: 16,
                                 ),
                               )
 
@@ -781,27 +794,126 @@ static const String routeName = 'item_details_screen';
                       ],
                     ),
                     SizedBox(height: 20.h),
-                    ElevatedButton(
-                      style: ButtonStyle(
-                        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(const EdgeInsets.all(20)),
-                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15.r),
-                            )
-                        ),
-                        foregroundColor: WidgetStateProperty.all<Color>(Colors.white)
-                      ),
-                        onPressed: () {
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+                                 EdgeInsets.symmetric(
+                                   horizontal:15.w,
+                                    vertical: 15.h
+                                 )
+                            ),
+                            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.r),
+                                )
+                            ),
+                            foregroundColor: WidgetStateProperty.all<Color>(Colors.white)
+                          ),
+                            onPressed: () {
 
-                        },
-                        child:  Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text("ADD TO CART"),
-                            SizedBox(width: 10.w),
-                            const Icon(Icons.shopping_cart_outlined)
-                          ],
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                 SnackBar(
+                                   shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                     side: const BorderSide(
+                                         color: Colors.grey
+                                     )
+
+                                   ),
+                                   showCloseIcon: true,
+                                    content: const Text("Added to cart"),
+                                  backgroundColor: Colors.white,
+                                  action: SnackBarAction(
+                                    label: "UNDO",
+                                    onPressed: () {
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                           SnackBar(
+                                            shape: RoundedRectangleBorder(
+                                                borderRadius: BorderRadius.circular(15),
+                                                side: const BorderSide(
+                                                    color: Colors.grey
+                                                )
+
+                                            ),
+                                            showCloseIcon: true,
+                                            content: Text("Removed from cart"),
+                                            backgroundColor: Colors.white,
+                                          )
+                                      );
+                                    },
+                                  )
+                                )
+                            );
+                            },
+                            child:  Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text("ADD TO CART"),
+                                SizedBox(width: 10.w),
+                                const Icon(Icons.shopping_cart_outlined)
+                              ],
+                            ),
                         ),
+                        SizedBox(width: 10.w),
+                         Container(
+                           decoration: BoxDecoration(
+                             borderRadius: BorderRadius.circular(15),
+                             color:  Colors.grey.shade200,
+                           ),
+                           child: StatefulBuilder(
+                             builder: (context, setState) {
+                               int quantity = 1;
+                               return Row(
+                                 children: [
+                                   TextButton(
+                                       onPressed: () {
+                                         setState(() {
+                                           quantity++;
+                                         });
+
+                                       },
+                                       child: const Text("+",
+                                         style: TextStyle(
+                                           fontSize: 30,
+                                           //fontWeight: FontWeight.bold
+                                         ),)
+                                   ),
+                                   //  const SizedBox(width: 5),
+                                    Text(
+                                     "$quantity",
+                                     style: const TextStyle(
+                                         fontSize: 30,
+                                         fontWeight: FontWeight.bold
+
+                                     ),
+                                   ),
+                                   // const SizedBox(width: 5),
+                                   TextButton(
+                                       onPressed: () {
+                                         if(quantity <= 1){
+                                           return ;
+                                         }else{
+                                           setState(() {
+                                             quantity--;
+                                           });
+                                         }
+
+                                       },
+                                       child: const Text("-",
+                                         style: TextStyle(
+                                           fontSize: 30,
+                                           //  fontWeight: FontWeight.bold
+                                         ),)
+                                   ),
+                                 ],
+                               );
+                             },
+                           ),
+                         )
+                      ],
                     )
                   ],
                 ),

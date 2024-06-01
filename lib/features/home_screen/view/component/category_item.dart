@@ -22,7 +22,10 @@ class CategoryItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(20.r),
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.all(5.0),
+        padding:  EdgeInsets.symmetric(
+            vertical : 5.h,
+            horizontal: 5.0.w
+        ),
         child: Column(
           children: [
             Container(
@@ -52,9 +55,10 @@ class CategoryItem extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10.h),
-            Text(title,
+            Text(
+              title,
               style: TextStyle(
-                fontSize: 12.sp,
+                fontSize: 12,
                 fontWeight: FontWeight.w600,
                 color: isSelected ?
                 const Color(0xff3A2C27) :

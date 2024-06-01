@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
       child: BlocBuilder<BottomAppBarCubit,BottomAppBarState>(
         builder: (context, state) {
           return Scaffold(
-            extendBody: true,
+           // extendBody: true,
            // extendBodyBehindAppBar: true,
             bottomNavigationBar: Container(
               decoration: BoxDecoration(
