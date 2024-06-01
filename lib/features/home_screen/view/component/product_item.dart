@@ -7,27 +7,32 @@ class ProductItem extends StatelessWidget {
     required this.title,
     required this.image,
     required this.price,
+    required this.id,
   });
 final String title;
 final String image;
 final String price;
+final String id;
   @override
   Widget build(BuildContext context) {
     return Column(
 
       children: [
-        Container(
-          width: 136.w,
-          height: 182.h,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.r),
-            color: const Color(0xffF5F5F5),
-            image:  DecorationImage(
-              image: AssetImage(
-                  image
-              ),
-              fit: BoxFit.cover,
+        Hero(
+          tag : "$id$image",
+          child: Container(
+            width: 136.w,
+            height: 182.h,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10.r),
+              color: const Color(0xffF5F5F5),
+              image:  DecorationImage(
+                image: AssetImage(
+                    image
+                ),
+                fit: BoxFit.cover,
 
+              ),
             ),
           ),
         ),

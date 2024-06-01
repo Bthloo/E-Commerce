@@ -7,7 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../component/categories_wedgit.dart';
 import '../component/category_item.dart';
 import '../component/image_slider_all.dart';
-import '../component/product_item.dart';
 import '../component/products_listview.dart';
 
 class HomeTab extends StatelessWidget {
@@ -25,9 +24,7 @@ class HomeTab extends StatelessWidget {
           const ImageSliderAll(),
           SizedBox(height: 35.h),
           BlocProvider(
-            create: (context) =>
-            BestSellingCubit()
-              ..getBestSelling(),
+            create: (context) => BestSellingCubit()..getBestSelling(),
             child: BlocBuilder<BestSellingCubit, BestSellingState>(
               builder: (context, state) {
                 if(state is BestSellingLoading) {
@@ -45,51 +42,51 @@ class HomeTab extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(height: 30.h),
-          BlocProvider(
-            create: (context) =>
-            BestSellingCubit()
-              ..getBestSelling(),
-            child: BlocBuilder<BestSellingCubit, BestSellingState>(
-              builder: (context, state) {
-                if(state is BestSellingLoading) {
-                  return const Center(child: CircularProgressIndicator(),);
-                }else if(state is BestSellingError) {
-                  return Center(child: Text(state.message),);
-                }else if(state is BestSellingLoaded) {
-                  return ProductsListview(
-                    title: "Recommended for you",
-                    products: state.products,
-                  );
-                }else {
-                  return const SizedBox();
-                }
-              },
-            ),
-          ),
-          SizedBox(height: 30.h),
-          BlocProvider(
-            create: (context) =>
-            BestSellingCubit()
-              ..getBestSelling(),
-            child: BlocBuilder<BestSellingCubit, BestSellingState>(
-              builder: (context, state) {
-                if(state is BestSellingLoading) {
-                  return const Center(child: CircularProgressIndicator(),);
-                }else if(state is BestSellingError) {
-                  return Center(child: Text(state.message),);
-                }else if(state is BestSellingLoaded) {
-                  return ProductsListview(
-                    title: "Top Collection",
-                    products: state.products,
-                  );
-                }else {
-                  return const SizedBox();
-                }
-              },
-            ),
-          ),
-          SizedBox(height: 30.h),
+          // SizedBox(height: 30.h),
+          // BlocProvider(
+          //   create: (context) =>
+          //   BestSellingCubit()
+          //     ..getBestSelling(),
+          //   child: BlocBuilder<BestSellingCubit, BestSellingState>(
+          //     builder: (context, state) {
+          //       if(state is BestSellingLoading) {
+          //         return const Center(child: CircularProgressIndicator(),);
+          //       }else if(state is BestSellingError) {
+          //         return Center(child: Text(state.message),);
+          //       }else if(state is BestSellingLoaded) {
+          //         return ProductsListview(
+          //           title: "Recommended for you",
+          //           products: state.products,
+          //         );
+          //       }else {
+          //         return const SizedBox();
+          //       }
+          //     },
+          //   ),
+          // ),
+          // SizedBox(height: 30.h),
+          // BlocProvider(
+          //   create: (context) =>
+          //   BestSellingCubit()
+          //     ..getBestSelling(),
+          //   child: BlocBuilder<BestSellingCubit, BestSellingState>(
+          //     builder: (context, state) {
+          //       if(state is BestSellingLoading) {
+          //         return const Center(child: CircularProgressIndicator(),);
+          //       }else if(state is BestSellingError) {
+          //         return Center(child: Text(state.message),);
+          //       }else if(state is BestSellingLoaded) {
+          //         return ProductsListview(
+          //           title: "Top Collection",
+          //           products: state.products,
+          //         );
+          //       }else {
+          //         return const SizedBox();
+          //       }
+          //     },
+          //   ),
+          // ),
+          // SizedBox(height: 30.h),
 
         ],
       ),
@@ -162,25 +159,3 @@ List<ImageSliderItem> imagesSlider = [
   ),
 ];
 
-List<Widget> bestSelling = [
-  const ProductItem(
-    title: "Long Sleeve Dress",
-    price: "1200",
-    image: "assets/images/bestSale.png",
-  ),
-  const ProductItem(
-    title: "Long Sleeve Dress",
-    price: "1200",
-    image: "assets/images/bestSale.png",
-  ),
-  const ProductItem(
-    title: "Long Sleeve Dress",
-    price: "1200",
-    image: "assets/images/bestSale.png",
-  ),
-  const ProductItem(
-    title: "Long Sleeve Dress",
-    price: "1200",
-    image: "assets/images/bestSale.png",
-  ),
-];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'color_helper.dart';
 
@@ -47,7 +48,8 @@ ThemeData themeData(BuildContext context) {
       ),
     ),
     appBarTheme: const AppBarTheme(
-      iconTheme: IconThemeData(
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
+        iconTheme: IconThemeData(
         color: ColorHelper.mainColor,
       ),
         color: ColorHelper.lightColor,

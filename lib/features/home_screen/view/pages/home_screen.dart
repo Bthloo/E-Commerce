@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:b_commerce/features/home_screen/viewmodel/appbar_viewmodel/app_bar_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +18,6 @@ class HomeScreen extends StatelessWidget {
       child: BlocBuilder<BottomAppBarCubit,BottomAppBarState>(
         builder: (context, state) {
           return Scaffold(
-
             extendBody: true,
            // extendBodyBehindAppBar: true,
             bottomNavigationBar: Container(
@@ -92,6 +92,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             appBar: AppBar(
+                systemOverlayStyle: SystemUiOverlayStyle.dark,
               leading: IconButton(
                 onPressed: () {
 

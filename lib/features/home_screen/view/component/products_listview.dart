@@ -70,13 +70,15 @@ class ProductsListview extends StatelessWidget {
                        title: products[index].title,
                        description: products[index].description,
                        price: products[index].price,
-                       image: products[index].image
+                       image: products[index].image,
+                        id: products[index].id
                    )
                  );
                 },
                   child: Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: ProductItem(
+                        id: products[index].id,
                         title:  products[index].title,
                         image:  products[index].image,
                         price:  products[index].price
