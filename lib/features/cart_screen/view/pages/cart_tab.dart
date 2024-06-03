@@ -53,6 +53,7 @@ class CartTab extends StatelessWidget {
             ]
           ),
         ),
+
         Expanded(
           flex: 1,
           child: Container(
@@ -63,64 +64,57 @@ class CartTab extends StatelessWidget {
             child: Column(
               children: [
                // SizedBox(height: 10.h,),
-                const Row(
+                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Products Price",
-                      style: TextStyle(
-                      fontSize: 20,
-                      //fontWeight: FontWeight.bold,
-                    ),),
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        fontSize: 20,
+                      )
+                    ),
                     Text(
                       "2400 LE",
-                      style: TextStyle(
-                      fontSize: 20,
-                      //fontWeight: FontWeight.bold,
-                    ),),
+                      style:Theme.of(context).textTheme.titleMedium!.copyWith(
+                        fontSize: 20,
+                      )),
                   ],
                 ),
-                 Divider(
-                  color: Colors.grey.shade200,
-                ),
-                const Row(
+                 const Divider(),
+                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Shipping Price",
-                      style: TextStyle(
+                      style:Theme.of(context).textTheme.titleMedium!.copyWith(
                         fontSize: 20,
-                       // fontWeight: FontWeight.bold,
-                      ),),
+                      )),
                     Text(
                       "2400 LE",
-                      style: TextStyle(
+                      style:Theme.of(context).textTheme.titleMedium!.copyWith(
                         fontSize: 20,
-                      //  fontWeight: FontWeight.bold,
-                      ),),
+                      )),
                   ],
                 ),
-                 Divider(
-                  color: Colors.grey.shade200,
-                ),
-                const Row(
+                  const Divider(),
+                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Total Price",
-                      style: TextStyle(
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                      ),),
+                      )),
                     Text(
                       "2400 LE",
-                      style: TextStyle(
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                      ),),
+                      )),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
           
                 ElevatedButton(
           
@@ -128,7 +122,6 @@ class CartTab extends StatelessWidget {
                   child: const Text("Proceed To Check Out",
                     style: TextStyle(
                       fontSize: 18,
-                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

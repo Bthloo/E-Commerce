@@ -1,4 +1,4 @@
-import 'package:b_commerce/core/general_components/color_helper.dart';
+import 'package:b_commerce/core/general_components/theme_data.dart';
 import 'package:b_commerce/core/models/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,10 +23,7 @@ static const String routeName = 'item_details_screen';
 
         child: CustomScrollView(
           slivers: [
-
             SliverAppBar(
-
-
               systemOverlayStyle: SystemUiOverlayStyle.dark,
               backgroundColor: Colors.transparent,
               surfaceTintColor: Colors.transparent,
@@ -39,7 +36,8 @@ static const String routeName = 'item_details_screen';
                     padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: const Color(0xffFFFFFF),
+                      //color: const Color(0xffFFFFFF),
+                      color : Theme.of(context).primaryColor,
                       boxShadow: [
                         BoxShadow(
                           color: const Color(0xff000000).withOpacity(.7),
@@ -75,7 +73,7 @@ static const String routeName = 'item_details_screen';
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
-                        color: const Color(0xffFFFFFF),
+                        color : Theme.of(context).primaryColor,
                         //color:  Colors.black,
                         boxShadow: [
                           BoxShadow(
@@ -97,7 +95,6 @@ static const String routeName = 'item_details_screen';
                 ],
               ),
               expandedHeight: 432.h,
-
               floating: true,
               pinned: true,
               flexibleSpace: FlexibleSpaceBar(
@@ -124,14 +121,14 @@ static const String routeName = 'item_details_screen';
                       children: [
                         Text(
                           args.title,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold
+                          style:  Theme.of(context).textTheme.titleMedium!.copyWith(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold
                           ),
                         ),
                         Text(
                           args.price,
-                          style: const TextStyle(
+                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
                               fontSize: 25,
                               fontWeight: FontWeight.bold
                           ),
@@ -151,9 +148,8 @@ static const String routeName = 'item_details_screen';
 
                     ),
                     SizedBox(height: 20.h),
-                       Divider(
+                       const Divider(
                         height: 2,
-                        color: Colors.grey.shade200,
                       ),
                     SizedBox(height: 20.h),
                       Row(
@@ -164,34 +160,46 @@ static const String routeName = 'item_details_screen';
                               borderRadius: BorderRadius.circular(15),
                               color:  Colors.grey.shade200,
                             ),
-                            child: DropdownMenu(
-                            label:  const Text("Color",style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600
-                            ),),
-                              menuStyle: MenuStyle(
-                                shape: WidgetStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  )
-                                ),
-                                backgroundColor: const WidgetStatePropertyAll(
-                                  Color(0xffF5F5F5),
-                                ),
-
+                            child:  DropdownMenu(
+                            label:  Text(
+                              "Color",
+                              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                  fontSize: 18,
                               ),
-                              dropdownMenuEntries:const [
+                            ),
+                              dropdownMenuEntries: [
                                 DropdownMenuEntry(
                                     value: "Red",
-                                    label: 'Red'
+                                    label: 'Red',
+                                  style: ButtonStyle(
+                                    overlayColor: WidgetStatePropertyAll(
+                                        Colors.grey.withOpacity(.5)
+                                    ),
+                                    // foregroundColor: const WidgetStatePropertyAll(
+                                    //     AppTheme.whiteColor
+                                    // )
+                                  )
                                 ),
                                 DropdownMenuEntry(
+
                                     value: "Black",
-                                    label: 'Black'
+                                    label: 'Black',
+                                    style: ButtonStyle(
+                                        overlayColor: WidgetStatePropertyAll(
+                                            Colors.grey.withOpacity(.5)
+                                        ),
+
+                                    )
                                 ),
                                 DropdownMenuEntry(
                                     value: "White",
-                                    label: 'White'
+                                    label: 'White',
+                                    style: ButtonStyle(
+                                        overlayColor: WidgetStatePropertyAll(
+                                            Colors.grey.withOpacity(.5)
+                                        ),
+
+                                    )
                                 )
                               ]
                                                 ),
@@ -199,25 +207,15 @@ static const String routeName = 'item_details_screen';
                           Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
-                              color:  Colors.grey.shade200,
+                             // color:  Colors.grey,
                             ),
                             child: DropdownMenu(
-                                label:  const Text(
-                                  "Size",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600
-                                ),),
-                                menuStyle: MenuStyle(
-                                  shape: WidgetStatePropertyAll(
-                                      RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
-                                      )
-                                  ),
-                                  backgroundColor: const WidgetStatePropertyAll(
-                                    Color(0xffF5F5F5),
-                                  ),
 
+                                label:   Text(
+                                  "Size",
+                                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                    fontSize: 18,
+                                  ),
                                 ),
                                 dropdownMenuEntries:const [
                                   DropdownMenuEntry(
@@ -238,29 +236,26 @@ static const String routeName = 'item_details_screen';
                         ],
                       ),
                     SizedBox(height: 20.h),
+                    const Divider(),
                     ExpansionTile(
-                      collapsedShape: BorderDirectional(
+                      collapsedShape: const BorderDirectional(
                         top: BorderSide(
-                          color: Colors.grey.shade200,
-                        ),
+                            color: Colors.transparent                        ),
                         bottom: BorderSide(
-                          color: Colors.grey.shade200,
-                        ),
+                            color: Colors.transparent                        ),
                       ),
-                      shape: BorderDirectional(
+                      shape: const BorderDirectional(
                         top: BorderSide(
-                          color: Colors.grey.shade200,
-                        ),
+                            color: Colors.transparent                        ),
                         bottom: BorderSide(
-                          color: Colors.grey.shade200,
-                        ),
+                            color: Colors.transparent                        ),
                       ),
-                        title: const Text(
+                        title:  Text(
                           "Description",
-                         style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold
-                          ),),
+                         style:  Theme.of(context).textTheme.titleMedium!.copyWith(
+                             fontSize: 18,
+                             fontWeight: FontWeight.bold
+                         ),),
                       children: [
                         Padding(
                           padding:  EdgeInsets.symmetric(
@@ -269,33 +264,37 @@ static const String routeName = 'item_details_screen';
                           ),
                           child: Text(
                             args.description,
-                            style: const TextStyle(
-                              fontSize: 16,
+                            style:Theme.of(context).textTheme.titleMedium!.copyWith(
+                                fontSize: 16,
+
                             ),
                           ),
                         ),
                       ],
                     ),
+                    const Divider(),
                     ExpansionTile(
-                      collapsedShape: BorderDirectional(
+                      collapsedShape: const BorderDirectional(
                         top: BorderSide(
-                          color: Colors.grey.shade200,
+                        // color: Colors.grey.shade200,
+                          color: Colors.transparent
                         ),
                         bottom: BorderSide(
-                          color: Colors.grey.shade200,
+                          //color: Colors.grey.shade200,
+                            color: Colors.transparent
                         ),
                       ),
-                      shape: BorderDirectional(
+                      shape: const BorderDirectional(
                         top: BorderSide(
-                          color: Colors.grey.shade200,
+                            color: Colors.transparent
                         ),
                         bottom: BorderSide(
-                          color: Colors.grey.shade200,
+                            color: Colors.transparent
                         ),
                       ),
-                      title: const Text(
+                      title:  Text(
                         "Reviews",
-                        style: TextStyle(
+                        style:  Theme.of(context).textTheme.titleMedium!.copyWith(
                             fontSize: 18,
                             fontWeight: FontWeight.bold
                         ),),
@@ -313,21 +312,19 @@ static const String routeName = 'item_details_screen';
                                   Row(
                                          crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
-                                          const Text(
+                                           Text(
                                            "3.5",
-                                            style: TextStyle(
-                                              fontSize: 40,
-                                              color: Color(0xff231F20),
-                                              fontWeight: FontWeight.bold
-                                          ),
+                                            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                                fontSize: 40,
+                                                fontWeight: FontWeight.bold
+                                            ),
                                           ),
                                           SizedBox(width: 5.w),
-                                          const Text(
+                                           Text(
                                              "OUT OF 5",
-                                            style: TextStyle(
-                                              fontSize: 11,
-                                              color: Color(0xff8A8A8F),
-                                              //fontWeight: FontWeight.bold
+                                            style:  Theme.of(context).textTheme.titleMedium!.copyWith(
+                                                fontSize: 11,
+                                                fontWeight: FontWeight.bold
                                             ),
                                           ),
                                         ]
@@ -338,7 +335,7 @@ static const String routeName = 'item_details_screen';
                                     unratedColor: const Color(0xff508A7B).withOpacity(.2),
                                     direction: Axis.horizontal,
                                     itemCount: 5,
-                                    itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                   // itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
                                     itemBuilder: (context, _) => const Icon(
                                       Icons.star,
                                       color: Color(0xff508A7B),
@@ -353,12 +350,11 @@ static const String routeName = 'item_details_screen';
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  const Text(
+                                   Text(
                                     "5",
-                                    style: TextStyle(
-                                    fontSize: 16,
-                                    color:  Color(0xff8A8A8F),
-                                  ),),
+                                    style:  Theme.of(context).textTheme.titleMedium!.copyWith(
+                                        fontSize: 16,
+                                    ),),
                                   SizedBox(width: 5.w),
                                   const Icon(
                                       Icons.star,
@@ -391,9 +387,8 @@ static const String routeName = 'item_details_screen';
                                       ),
                                     ),
                                   ),
-                                  const Text("20%",style: TextStyle(
+                                   Text("20%",style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                     fontSize: 12,
-                                    color:  Colors.black,
                                   ),),
 
                                 ],
@@ -403,10 +398,11 @@ static const String routeName = 'item_details_screen';
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  const Text("4",style: TextStyle(
-                                    fontSize: 16,
-                                    color:  Color(0xff8A8A8F),
-                                  ),),
+                                   Text(
+                                     "4",
+                                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                       fontSize: 16,
+                                     ),),
                                   SizedBox(width: 5.w),
                                   const Icon(
                                       Icons.star,
@@ -441,10 +437,11 @@ static const String routeName = 'item_details_screen';
                                       ),
                                     ),
                                   ),
-                                  const Text("30%",style: TextStyle(
-                                    fontSize: 12,
-                                    color:  Colors.black,
-                                  ),),
+                                   Text(
+                                    "30%",
+                                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                      fontSize: 12,
+                                    ),),
 
                                 ],
                               ),
@@ -453,10 +450,11 @@ static const String routeName = 'item_details_screen';
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  const Text("3",style: TextStyle(
-                                    fontSize: 16,
-                                    color:  Color(0xff8A8A8F),
-                                  ),),
+                                   Text(
+                                    "3",
+                                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                      fontSize: 16,
+                                    ),),
                                   SizedBox(width: 5.w),
                                   const Icon(
                                       Icons.star,
@@ -491,10 +489,11 @@ static const String routeName = 'item_details_screen';
                                       ),
                                     ),
                                   ),
-                                  const Text("20%",style: TextStyle(
-                                    fontSize: 12,
-                                    color:  Colors.black,
-                                  ),),
+                                   Text(
+                                    "20%",
+                                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                      fontSize: 12,
+                                    ),),
 
                                 ],
                               ),
@@ -503,10 +502,11 @@ static const String routeName = 'item_details_screen';
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  const Text("2",style: TextStyle(
-                                    fontSize: 16,
-                                    color:  Color(0xff8A8A8F),
-                                  ),),
+                                   Text(
+                                    "2",
+                                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                      fontSize: 16,
+                                    ),),
                                   SizedBox(width: 5.w),
                                   const Icon(
                                       Icons.star,
@@ -541,10 +541,11 @@ static const String routeName = 'item_details_screen';
                                       ),
                                     ),
                                   ),
-                                  const Text("10%",style: TextStyle(
-                                    fontSize: 12,
-                                    color:  Colors.black,
-                                  ),),
+                                   Text(
+                                    "10%",
+                                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                      fontSize: 12,
+                                    ),),
                                 ],
                               ),
                               SizedBox(height: 10.h),
@@ -552,10 +553,11 @@ static const String routeName = 'item_details_screen';
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  const Text("1",style: TextStyle(
-                                    fontSize: 16,
-                                    color:  Color(0xff8A8A8F),
-                                  ),),
+                                   Text(
+                                     "1",
+                                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                       fontSize: 16,
+                                     ),),
                                   SizedBox(width: 5.w),
                                   const Icon(
                                       Icons.star,
@@ -588,10 +590,11 @@ static const String routeName = 'item_details_screen';
                                       ),
                                     ),
                                   ),
-                                  const Text("10%",style: TextStyle(
-                                    fontSize: 12,
-                                    color:  Colors.black,
-                                  ),),
+                                   Text(
+                                    "10%",
+                                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                       fontSize: 12,
+                                     ),),
 
                                 ],
                               ),
@@ -599,12 +602,11 @@ static const String routeName = 'item_details_screen';
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                   const Text("35 Review",
-                                    style: TextStyle(
+                                    Text("35 Review",
+                                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                       fontSize: 16,
-                                      color:  Color(0xff8A8A8F),
                                     ),),
-                                    TextButton(
+                                    TextButton.icon(
                                     onPressed: (){
                                       showGeneralDialog(
                                           context: context,
@@ -693,11 +695,11 @@ static const String routeName = 'item_details_screen';
                                           },
                                       );
                                     },
-                                    child: const Text(
+                                      label: const Icon(Icons.edit),
+                                    icon:  Text(
                                       "WRITE A REVIEW",
-                                      style: TextStyle(
+                                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                         fontSize: 16,
-                                        color: Color(0xff3A2C27),
                                       ),
                                     ),
                                   ),
@@ -713,14 +715,13 @@ static const String routeName = 'item_details_screen';
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      const Text("John Doe",
-                                        style: TextStyle(
+                                       Text("John Doe",
+                                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold
                                         ),),
                                       RatingBarIndicator(
                                         rating: 3.5,
-
                                         itemSize: 20,
                                         unratedColor: const Color(0xff508A7B).withOpacity(.2),
                                         direction: Axis.horizontal,
@@ -739,9 +740,9 @@ static const String routeName = 'item_details_screen';
                                 ],
                               ),
                               SizedBox(height: 20.h),
-                              const Text(
+                               Text(
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget nunc",
-                              style: TextStyle(
+                              style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                 fontSize: 16,
                               ),
                               ),
@@ -755,14 +756,13 @@ static const String routeName = 'item_details_screen';
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      const Text("John Doe",
-                                        style: TextStyle(
+                                      Text("John Doe",
+                                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold
                                         ),),
                                       RatingBarIndicator(
                                         rating: 3.5,
-
                                         itemSize: 20,
                                         unratedColor: const Color(0xff508A7B).withOpacity(.2),
                                         direction: Axis.horizontal,
@@ -781,18 +781,19 @@ static const String routeName = 'item_details_screen';
                                 ],
                               ),
                               SizedBox(height: 20.h),
-                              const Text(
+                              Text(
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget nunc",
-                                style: TextStyle(
+                                style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                   fontSize: 16,
                                 ),
-                              )
+                              ),
 
                             ],
                           ),
                         ),
                       ],
                     ),
+                    const Divider(),
                     SizedBox(height: 20.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -810,37 +811,22 @@ static const String routeName = 'item_details_screen';
                                   borderRadius: BorderRadius.circular(15.r),
                                 )
                             ),
-                            foregroundColor: WidgetStateProperty.all<Color>(Colors.white)
+                           // foregroundColor: WidgetStateProperty.all<Color>(Colors.white)
                           ),
                             onPressed: () {
-
                             ScaffoldMessenger.of(context).showSnackBar(
                                  SnackBar(
-                                   shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                     side: const BorderSide(
-                                         color: Colors.grey
-                                     )
-
-                                   ),
                                    showCloseIcon: true,
                                     content: const Text("Added to cart"),
-                                  backgroundColor: Colors.white,
+                                 // backgroundColor: Colors.white,
                                   action: SnackBarAction(
                                     label: "UNDO",
                                     onPressed: () {
                                       ScaffoldMessenger.of(context).showSnackBar(
-                                           SnackBar(
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(15),
-                                                side: const BorderSide(
-                                                    color: Colors.grey
-                                                )
-
-                                            ),
+                                           const SnackBar(
                                             showCloseIcon: true,
                                             content: Text("Removed from cart"),
-                                            backgroundColor: Colors.white,
+                                           // backgroundColor: Colors.white,
                                           )
                                       );
                                     },

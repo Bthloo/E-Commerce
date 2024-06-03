@@ -31,7 +31,7 @@ class ProductsListview extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
+              style:  Theme.of(context).textTheme.titleMedium!.copyWith(
                   fontSize: 20,
                   fontWeight: FontWeight.bold
               ),
@@ -40,11 +40,11 @@ class ProductsListview extends StatelessWidget {
               onPressed: (){
 
               },
-              child: const Text(
+              child:  Text(
                 "Show All",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Color(0xff3A2C27),
+                style:  Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold
                 ),
               ),
             ),

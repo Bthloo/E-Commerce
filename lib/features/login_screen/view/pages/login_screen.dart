@@ -20,32 +20,44 @@ static const String routeName = 'login_screen';
                 );
              },
              child: Text('Skip',
-               style: TextStyle(
-                 fontSize: 14.sp,
-                 color: Colors.black,
-                 fontWeight: FontWeight.w600
-               ),
+               style: Theme.of(context).textTheme.titleMedium!.copyWith(
+               fontSize: 14,
+               fontWeight: FontWeight.w600
+               //  fontWeight: FontWeight.bold
+             )
              ),
          )
         ],
       ),
       body:  Padding(
         padding:  EdgeInsets.symmetric(horizontal: 25.0.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Log into\nyour account',
-              style: TextStyle(
-                height: 2,
-                fontSize: 24.sp,
-                fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Log into\nyour account',
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.bold,
+                  height: 2
               ),
-            ),
-            SizedBox(height: 40.h),
-            CustomFormField(
-                hintText: 'Email address',
+              ),
+              SizedBox(height: 40.h),
+              CustomFormField(
+                  hintText: 'Email address',
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter your email';
+                    }
+                    return null;
+                  },
+                  controller: TextEditingController(),
+              ),
+              SizedBox(height: 20.h),
+              CustomFormField(
+                hintText: 'Password',
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Please enter your email';
@@ -53,85 +65,73 @@ static const String routeName = 'login_screen';
                   return null;
                 },
                 controller: TextEditingController(),
-            ),
-            SizedBox(height: 20.h),
-            CustomFormField(
-              hintText: 'Password',
-              validator: (value) {
-                if (value!.isEmpty) {
-                  return 'Please enter your email';
-                }
-                return null;
-              },
-              controller: TextEditingController(),
-            ),
-            SizedBox(height: 28.h),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-
-                onPressed: () {
-
-                },
-                child: Text("Forgot password?",
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    color: Colors.black,
-                    //fontWeight: FontWeight.w500
+              ),
+              SizedBox(height: 28.h),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+          
+                  onPressed: () {
+          
+                  },
+                  child: Text("Forgot password?",
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      fontSize: 12.sp,
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 25.h),
-            Center(
-              child: ElevatedButton(
-                  onPressed: () {
-
-                  },
-                  child: SizedBox(
-                    height: 51.h,
-                    width: 147.w,
-                    child: Center(
-                      child: Text('LOGIN',
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.bold,
-                          color: const Color(0xffFFFFFF)
+              ),
+              SizedBox(height: 25.h),
+              Center(
+                child: ElevatedButton(
+                    onPressed: () {
+          
+                    },
+                    child: SizedBox(
+                      height: 51.h,
+                      width: 147.w,
+                      child: const Center(
+                        child: Text('LOGIN',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                           // color: const Color(0xffFFFFFF)
+                          ),
                         ),
                       ),
                     ),
-                  ),
+                ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Don't have an account?",
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600
-                  ),
-                ),
-                TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context,
-                          RegisterScreen.routeName
-                      );
-                    },
-                    child: Text('Sign Up',
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        decoration: TextDecoration.underline,
-                        fontWeight: FontWeight.w600
-                      ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Don't have an account?",
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600
                     ),
-                ),
-              ],
-            ),
-
-          ],
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                            context,
+                            RegisterScreen.routeName
+                        );
+                      },
+                      child: Text('Sign Up',
+                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                          decorationColor: Theme.of(context).primaryColorDark
+                        ),
+                      ),
+                  ),
+                ],
+              ),
+          
+            ],
+          ),
         ),
       ),
     );

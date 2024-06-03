@@ -42,18 +42,18 @@ final String id;
             children: [
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 12,
-                  overflow: TextOverflow.ellipsis,
-
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  overflow: TextOverflow.ellipsis
                 ),
               ),
               Text(
                 price,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontSize: 16,
+                    overflow: TextOverflow.ellipsis,
+                    fontWeight: FontWeight.bold
                 ),
               ),
             ],

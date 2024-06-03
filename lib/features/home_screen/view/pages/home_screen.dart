@@ -1,15 +1,20 @@
 import 'dart:ui';
 
+import 'package:b_commerce/features/home_screen/view/component/drawer_item.dart';
 import 'package:b_commerce/features/home_screen/viewmodel/appbar_viewmodel/app_bar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../component/drawer_header_inside_widget.dart';
+import '../component/drawer_widget.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   static const routeName = "home-screen";
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +23,15 @@ class HomeScreen extends StatelessWidget {
       child: BlocBuilder<BottomAppBarCubit,BottomAppBarState>(
         builder: (context, state) {
           return Scaffold(
+            key: BottomAppBarCubit.get(context).scaffoldKey,
+            drawer: const DrawerWidget(),
            // extendBody: true,
            // extendBodyBehindAppBar: true,
             bottomNavigationBar: Container(
               decoration: BoxDecoration(
                 boxShadow:  [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(.5),
+                    color: Colors.black.withOpacity(.3),
                     spreadRadius: 0,
                     blurRadius: 20,
 
@@ -48,9 +55,9 @@ class HomeScreen extends StatelessWidget {
                   showUnselectedLabels: false,
                   showSelectedLabels: false,
                   type: BottomNavigationBarType.fixed,
-                  backgroundColor: Colors.white,
-                    fixedColor: Colors.black,
-                  unselectedItemColor: const Color(0xffBEBFC4),
+                 // backgroundColor: Colors.white,
+                   // fixedColor: Colors.black,
+                  //unselectedItemColor: const Color(0xffBEBFC4),
                  // useLegacyColorScheme: false,
 
 
@@ -92,18 +99,22 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             appBar: AppBar(
-                systemOverlayStyle: SystemUiOverlayStyle.dark,
-              leading: IconButton(
-                onPressed: () {
+                //systemOverlayStyle: SystemUiOverlayStyle.dark,
+              leading: Builder(
+                builder: (context) {
+                  return IconButton(
+                    onPressed: () {
+                      Scaffold.of(context).openDrawer();
+                    },
+                    icon: const ImageIcon(
+                      size: 25,
+                      AssetImage(
+                          "assets/icons/burger_icon.png",
+                      ),
+                    ),
 
-                },
-                icon: const ImageIcon(
-                  size: 25,
-                  AssetImage(
-                      "assets/icons/burger_icon.png",
-                  ),
-                ),
-
+                  );
+                }
               ),
               // const ImageIcon(
               //  // size: .1,

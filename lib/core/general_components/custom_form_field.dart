@@ -36,6 +36,9 @@ class CustomFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+        fontSize: 16,
+      ),
       autofocus: focus,
       controller: controller,
       onTap: onTab,
@@ -45,16 +48,9 @@ class CustomFormField extends StatelessWidget {
       focusNode: passwordFocusNode,
       onChanged: onChange,
         decoration: InputDecoration(
-          hintText: hintText,
-          enabledBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(
-                color: Color(0xffD6D6D6)
-            ),
-          ),
-          hintStyle: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.normal,
-            fontSize: 14.sp,
+          labelText: hintText,
+          labelStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
+            fontSize: 16,
           ),
 
         )

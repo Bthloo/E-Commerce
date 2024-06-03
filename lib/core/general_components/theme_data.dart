@@ -3,14 +3,403 @@ import 'package:flutter/services.dart';
 
 import 'color_helper.dart';
 
+class AppTheme{
+  static const Color whiteColor = Colors.white;
+  static const Color blackColor = Colors.black;
+
+ static ThemeData lightTheme = ThemeData(
+   dividerTheme:  DividerThemeData(
+     color: Colors.grey.shade200,
+   ),
+   inputDecorationTheme:   const InputDecorationTheme(
+     focusedBorder: UnderlineInputBorder(
+       borderSide: BorderSide(
+           color: ColorHelper.mainColor
+       ),
+     ),
+     enabledBorder: UnderlineInputBorder(
+       borderSide: BorderSide(
+           color: Color(0xffD6D6D6)
+       ),
+     ),
+   ),
+   drawerTheme: const DrawerThemeData(
+
+     backgroundColor: Colors.white,
+   ),
+   cardTheme:  CardTheme(
+     shape: RoundedRectangleBorder(
+       borderRadius: BorderRadius.circular(15),
+     side: BorderSide(
+       color: Colors.grey.shade200,
+     ),
+     ),
+     color: Colors.white,
+   ),
+   primaryColor: Colors.white,
+   primaryColorDark: const Color(0xff273B4A),
+   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: Colors.white,
+      selectedItemColor: Colors.black,
+      unselectedItemColor: Colors.grey,
+
+   ),
+   snackBarTheme: SnackBarThemeData(
+     contentTextStyle: const TextStyle(
+       color: Colors.black,
+     ),
+     //actionBackgroundColor: Colors.white,
+     actionTextColor: Colors.black,
+     disabledActionTextColor: Colors.black,
+     closeIconColor: Colors.black,
+     shape: RoundedRectangleBorder(
+         borderRadius: BorderRadius.circular(15),
+         side:  BorderSide(
+             color: Colors.grey.shade200
+         )
+
+     ),
+     backgroundColor: Colors.white,
+
+   ),
+   dropdownMenuTheme:  DropdownMenuThemeData(
+
+     textStyle: const TextStyle(
+       color: Colors.black,
+     ),
+     inputDecorationTheme: InputDecorationTheme(
+       enabledBorder: OutlineInputBorder(
+         borderRadius: BorderRadius.circular(15),
+         borderSide:  const BorderSide(
+             color: Color(0xffB1B5C3),
+             width: 1
+         ),
+       ),
+
+       filled: true,
+       suffixStyle: const TextStyle(
+         color: Colors.white,
+       ),
+       iconColor: Colors.black,
+       suffixIconColor:Colors.black,
+       hintStyle: const TextStyle(
+         color: Colors.white,
+
+       ),
+       labelStyle: const TextStyle(
+         color: Colors.white,
+       ),
+       alignLabelWithHint: true,
+       fillColor: Colors.grey.shade200,
+       border: OutlineInputBorder(
+           borderRadius: BorderRadius.circular(15),
+           borderSide: const BorderSide(
+               color: Colors.transparent
+           )
+       ),
+     ),
+     menuStyle: MenuStyle(
+       side:  const WidgetStatePropertyAll(
+           BorderSide(
+               color: Colors.black12
+           )
+       ),
+       shadowColor: WidgetStateProperty.all(
+           Colors.grey.withOpacity(.1)
+       ),
+       shape: WidgetStateProperty.all(
+           RoundedRectangleBorder(
+             borderRadius: BorderRadius.circular(15),
+           )
+       ),
+       backgroundColor: WidgetStateProperty.all(
+         Colors.grey.shade200,
+       ),
+     ),
+   ),
+   textTheme: const TextTheme(
+     displayMedium: TextStyle(
+       color: Color(0xff273B4A),
+       fontSize: 16,
+       fontFamily: "Mont",
+       // fontWeight: FontWeight.bold
+     ),
+     titleMedium:  TextStyle(
+       color: Colors.black,
+       fontSize: 25,
+       fontFamily: "Mont",
+       // fontWeight: FontWeight.bold
+     ),
+   ),
+   dialogTheme: const DialogTheme(
+     titleTextStyle: TextStyle(
+       color: ColorHelper.mainColor,
+       fontSize: 20,
+
+     ),
+     backgroundColor: ColorHelper.darkColor,
+     contentTextStyle: TextStyle(
+         color: Colors.white
+     ),
+
+   ),
+   fontFamily: "Mont",
+   elevatedButtonTheme:   ElevatedButtonThemeData(
+       style: ButtonStyle(
+         overlayColor: WidgetStateProperty.all(
+             Colors.white.withOpacity(.1)
+         ),
+         backgroundColor: const WidgetStatePropertyAll(
+             Color(0xff2D201C)
+         ),
+         foregroundColor: const WidgetStatePropertyAll(
+             Colors.white
+         ),
+       )
+   ),
+   bottomSheetTheme: const BottomSheetThemeData(
+     dragHandleColor: ColorHelper.mainColor,
+     backgroundColor: ColorHelper.darkColor,
+     dragHandleSize: Size(200,7),
+     showDragHandle: true,
+     shape:  RoundedRectangleBorder(
+       borderRadius: BorderRadius.vertical(
+         top: Radius.circular(25.0),
+       ),
+     ),
+   ),
+   appBarTheme: const AppBarTheme(
+       systemOverlayStyle: SystemUiOverlayStyle.dark,
+       iconTheme: IconThemeData(
+         color: ColorHelper.mainColor,
+       ),
+       color: ColorHelper.lightColor,
+       centerTitle: true,
+       titleTextStyle: TextStyle(
+           color: ColorHelper.mainColor,
+           fontSize: 25,
+           fontWeight: FontWeight.bold,
+           fontFamily: "Cairo"
+       )
+   ),
+   scaffoldBackgroundColor: Colors.white,
+   // primaryColor: ColorHelper.mainColor,
+   colorScheme: const ColorScheme.dark(
+     brightness: Brightness.dark,
+     onSurface: ColorHelper.darkColor,
+     primary: ColorHelper.mainColor,
+   ),
+   useMaterial3: true,
+ );
+
+ static ThemeData darkTheme = ThemeData(
+   primaryColorDark: const Color(0xffB1B5C3),
+   cardTheme:  CardTheme(
+     shadowColor: Colors.black,
+     shape: RoundedRectangleBorder(
+       borderRadius: BorderRadius.circular(15),
+
+     ),
+     color: ColorHelper.darkThemeColor,
+   ),
+   drawerTheme: const DrawerThemeData(
+
+     backgroundColor: Color(0xff141416),
+   ),
+   primaryColor: ColorHelper.darkThemeColor,
+   listTileTheme: const ListTileThemeData(
+     iconColor: Colors.white,
+   ),
+   dropdownMenuTheme:  DropdownMenuThemeData(
+     textStyle: const TextStyle(
+       color: Colors.white,
+     ),
+     inputDecorationTheme: InputDecorationTheme(
+       enabledBorder: OutlineInputBorder(
+         borderRadius: BorderRadius.circular(15),
+         borderSide:  const BorderSide(
+             color: Color(0xffB1B5C3),
+             width: 1
+         ),
+       ),
+
+       filled: true,
+       suffixStyle: const TextStyle(
+         color: Colors.white,
+       ),
+       iconColor: Colors.white,
+       suffixIconColor: Colors.white,
+       hintStyle: const TextStyle(
+          color: Colors.white,
+
+       ),
+       labelStyle: const TextStyle(
+         color: Colors.white,
+       ),
+       alignLabelWithHint: true,
+       fillColor: ColorHelper.darkThemeColor,
+       border: OutlineInputBorder(
+           borderRadius: BorderRadius.circular(15),
+           borderSide: const BorderSide(
+               color: Colors.transparent
+           )
+       ),
+     ),
+     menuStyle: MenuStyle(
+       side: const WidgetStatePropertyAll(
+           BorderSide(
+               color: Colors.transparent
+
+           )
+       ),
+       shadowColor: WidgetStateProperty.all(
+           Colors.grey.withOpacity(.1)
+       ),
+       shape: WidgetStateProperty.all(
+           RoundedRectangleBorder(
+             borderRadius: BorderRadius.circular(15),
+           )
+       ),
+       backgroundColor: WidgetStateProperty.all(
+         ColorHelper.darkThemeColor,
+       ),
+     ),
+
+   ),
+   menuButtonTheme: MenuButtonThemeData(
+     style: ButtonStyle(
+       overlayColor: WidgetStateProperty.all(
+           Colors.grey.withOpacity(.5)
+       ),
+       foregroundColor: WidgetStateProperty.all(
+           Colors.white
+       ),
+      ),
+   ),
+   expansionTileTheme: const ExpansionTileThemeData(
+     textColor: Colors.white,
+     iconColor: Colors.white,
+     collapsedIconColor: Colors.white,
+   ),
+   dividerColor: const Color(0xff23262F),
+   dividerTheme: const DividerThemeData(
+     color: Color(0xff23262F),
+   ),
+   snackBarTheme: SnackBarThemeData(
+     contentTextStyle: const TextStyle(
+       color: Colors.white,
+     ),
+     //actionBackgroundColor: Colors.white,
+     actionTextColor: Colors.white,
+     disabledActionTextColor: Colors.white,
+     closeIconColor: Colors.white,
+     shape: RoundedRectangleBorder(
+         borderRadius: BorderRadius.circular(15),
+         side: const BorderSide(
+             color: Color(0xff23262F)
+         )
+
+     ),
+     backgroundColor: ColorHelper.darkThemeColor,
+
+   ),
+   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+     backgroundColor: ColorHelper.darkThemeColor,
+     selectedItemColor: Colors.white,
+     unselectedItemColor: Color(0xff353945),
+   ),
+   textTheme: const TextTheme(
+     titleMedium:  TextStyle(
+       color: Colors.white,
+       fontSize: 25,
+       fontFamily: "Mont",
+       // fontWeight: FontWeight.bold
+     ),
+   ),
+   dialogTheme: const DialogTheme(
+     titleTextStyle: TextStyle(
+       color: Colors.white,
+       fontSize: 20,
+     ),
+     backgroundColor: ColorHelper.darkThemeColor,
+     contentTextStyle: TextStyle(
+         color: Colors.white
+     ),
+
+   ),
+   fontFamily: "Mont",
+   elevatedButtonTheme:   ElevatedButtonThemeData(
+       style: ButtonStyle(
+         overlayColor: WidgetStateProperty.all(
+             Colors.grey.withOpacity(.5)
+         ),
+         backgroundColor: const WidgetStatePropertyAll(
+             Colors.white
+         ),
+         foregroundColor: const WidgetStatePropertyAll(
+             ColorHelper.darkThemeColor
+         ),
+       )
+   ),
+   bottomSheetTheme: const BottomSheetThemeData(
+     dragHandleColor: Colors.white,
+     backgroundColor: ColorHelper.darkThemeColor,
+     dragHandleSize: Size(200,7),
+     showDragHandle: true,
+     shape:  RoundedRectangleBorder(
+       borderRadius: BorderRadius.vertical(
+         top: Radius.circular(25.0),
+       ),
+     ),
+   ),
+   appBarTheme: const AppBarTheme(
+       systemOverlayStyle: SystemUiOverlayStyle.light,
+       iconTheme: IconThemeData(
+         color: Colors.white,
+       ),
+       color: ColorHelper.darkThemeColor,
+       centerTitle: true,
+       titleTextStyle: TextStyle(
+           color: Colors.white,
+           fontSize: 25,
+           fontWeight: FontWeight.bold,
+           fontFamily: "Mont"
+       )
+   ),
+   scaffoldBackgroundColor: ColorHelper.darkThemeColor,
+   // primaryColor: ColorHelper.mainColor,
+
+   colorScheme: const ColorScheme.dark(
+     brightness: Brightness.dark,
+     onSurface: ColorHelper.darkColor,
+     primary: ColorHelper.mainColor,
+   ),
+   useMaterial3: true,
+   inputDecorationTheme: const InputDecorationTheme(
+     focusedBorder: UnderlineInputBorder(
+       borderSide: BorderSide(
+           color: Colors.white
+       ),
+     ),
+     enabledBorder: UnderlineInputBorder(
+       borderSide: BorderSide(
+           color: Color(0xff777E90)
+       ),
+     ),
+   )
+ );
+
+
+}
+
 ThemeData themeData(BuildContext context) {
   return ThemeData(
     textTheme: const TextTheme(
       titleMedium:  TextStyle(
-          color: ColorHelper.mainColor,
+          color: Colors.black,
           fontSize: 25,
-          fontFamily: "Cairo",
-          fontWeight: FontWeight.bold
+          fontFamily: "Mont",
+         // fontWeight: FontWeight.bold
       ),
     ),
     dialogTheme: const DialogTheme(
@@ -33,7 +422,10 @@ ThemeData themeData(BuildContext context) {
        ),
         backgroundColor: const WidgetStatePropertyAll(
             Color(0xff2D201C)
-        )
+        ),
+        foregroundColor: const WidgetStatePropertyAll(
+            Colors.white
+        ),
       )
     ),
     bottomSheetTheme: const BottomSheetThemeData(
@@ -61,7 +453,7 @@ ThemeData themeData(BuildContext context) {
           fontFamily: "Cairo"
         )
     ),
-    scaffoldBackgroundColor: ColorHelper.lightColor,
+    scaffoldBackgroundColor: Colors.white,
    // primaryColor: ColorHelper.mainColor,
     colorScheme: const ColorScheme.dark(
       brightness: Brightness.dark,
