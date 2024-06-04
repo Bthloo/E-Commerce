@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'color_helper.dart';
+import '../core/general_components/color_helper.dart';
 
 class AppTheme{
   static const Color whiteColor = Colors.white;
@@ -133,13 +133,12 @@ class AppTheme{
    ),
    dialogTheme: const DialogTheme(
      titleTextStyle: TextStyle(
-       color: ColorHelper.mainColor,
+       color: Colors.black,
        fontSize: 20,
-
      ),
-     backgroundColor: ColorHelper.darkColor,
+     backgroundColor: Colors.black,
      contentTextStyle: TextStyle(
-         color: Colors.white
+         color: Colors.black
      ),
 
    ),
@@ -184,10 +183,14 @@ class AppTheme{
    ),
    scaffoldBackgroundColor: Colors.white,
    // primaryColor: ColorHelper.mainColor,
-   colorScheme: const ColorScheme.dark(
-     brightness: Brightness.dark,
+   colorScheme: const ColorScheme.light(
+     onPrimary: Color(0xff3A2C27),
+     secondary: Color(0xff9D9D9D),
+     inversePrimary: Color(0xffF3F3F3),
+     brightness: Brightness.light,
      onSurface: ColorHelper.darkColor,
      primary: ColorHelper.mainColor,
+     surfaceContainer: Colors.white,
    ),
    useMaterial3: true,
  );
@@ -368,11 +371,16 @@ class AppTheme{
    ),
    scaffoldBackgroundColor: ColorHelper.darkThemeColor,
    // primaryColor: ColorHelper.mainColor,
-
+     //Color(0xff23262F)
+     //Color(0xffB1B5C3)
    colorScheme: const ColorScheme.dark(
+     onPrimary: Color(0xffFCFCFD),
+     secondary: Color(0xffB1B5C3),
+     inversePrimary: Color(0xff23262F),
      brightness: Brightness.dark,
      onSurface: ColorHelper.darkColor,
      primary: ColorHelper.mainColor,
+     surfaceContainer: ColorHelper.darkThemeColor,
    ),
    useMaterial3: true,
    inputDecorationTheme: const InputDecorationTheme(

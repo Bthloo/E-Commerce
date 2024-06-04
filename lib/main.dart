@@ -1,4 +1,4 @@
-import 'package:b_commerce/core/general_components/theme_data.dart';
+import 'package:b_commerce/themeing/theme_data.dart';
 import 'package:b_commerce/features/home_screen/view/pages/home_screen.dart';
 import 'package:b_commerce/features/item_details_screen/view/pages/item_details_screen.dart';
 import 'package:b_commerce/features/login_screen/view/pages/login_screen.dart';

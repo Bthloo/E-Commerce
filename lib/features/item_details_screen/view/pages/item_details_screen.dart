@@ -1,4 +1,3 @@
-import 'package:b_commerce/core/general_components/theme_data.dart';
 import 'package:b_commerce/core/models/product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -621,67 +620,65 @@ static const String routeName = 'item_details_screen';
                                                   height: 300.h,
                                                   decoration: BoxDecoration(
                                                     borderRadius: BorderRadius.circular(15.r),
-                                                    color: Colors.white,
+                                                    color: Theme.of(context).colorScheme.surfaceContainer
                                                   ),
                                                   child: Padding(
                                                     padding: const EdgeInsets.all(8.0),
                                                     child: Column(
                                                       children: [
                                                         SizedBox(height: 20.h),
-                                                        const Text("Write a review",
-                                                          style: TextStyle(
+                                                         Text("Write a review",
+                                                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                                             fontSize: 20,
                                                             fontWeight: FontWeight.bold
                                                           ),
-                                                        ),
+                                                         ),
                                                         SizedBox(
                                                           height: 100.h,
                                                           child: TextFormField(
                                                             maxLines: null,
                                                             minLines: null,
                                                             expands: true,
-                                                            decoration:  InputDecoration(
+                                                            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                                              fontSize: 14,
+                                                              fontWeight: FontWeight.w400
+                                                            ),
+                                                            decoration:
+                                                            InputDecoration(
+                                                              focusedBorder: OutlineInputBorder(
+                                                                borderRadius: BorderRadius.all(Radius.circular(15.r)),
+                                                                borderSide: const BorderSide(
+                                                                  color: Colors.grey,
+                                                                ),
+                                                              ),
                                                               enabledBorder: OutlineInputBorder(
                                                                 borderRadius: BorderRadius.all(Radius.circular(15.r)),
                                                                 borderSide: const BorderSide(
                                                                   color: Colors.grey,
                                                                 ),
+
                                                               ),
-                                                              border: OutlineInputBorder(
-                                                                borderRadius: BorderRadius.all(Radius.circular(15.r)),
-                                                                borderSide: const BorderSide(
-                                                                  color: Colors.grey,
-                                                                ),
-                                                              ),
+                                                              // border: OutlineInputBorder(
+                                                              //   borderRadius: BorderRadius.all(Radius.circular(15.r)),
+                                                              //   borderSide: const BorderSide(
+                                                              //     color: Colors.grey,
+                                                              //   ),
+                                                              // ),
                                                               hintText: "Enter your review",
-                                                              hintStyle: const TextStyle(
-                                                                color: Colors.black,
-                                                                fontSize: 14,
-                                                                fontWeight: FontWeight.w400
-                                                              ),
+                                                              hintStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                                                  fontSize: 14,
+                                                                  fontWeight: FontWeight.w400
+                                                              )
                                                             ),
                                                           ),
                                                         ),
                                                         const Spacer(),
                                                         ElevatedButton(
-                                                          style: ButtonStyle(
-                                                            padding: WidgetStateProperty.all<EdgeInsetsGeometry>
-                                                              ( EdgeInsets.symmetric(
-                                                                vertical: 10.h,
-                                                                horizontal: 50.w
-                                                            )
-                                                            ),
-                                                            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                                                                RoundedRectangleBorder(
-                                                                  borderRadius: BorderRadius.circular(15.r),
-                                                                )
-                                                            ),
-                                                            foregroundColor: WidgetStateProperty.all<Color>(Colors.white)
-                                                          ),
                                                           onPressed: () {
                                                             Navigator.pop(context);
                                                           },
-                                                          child: const Text("SUBMIT",style: TextStyle(
+                                                          child: const Text("SUBMIT",
+                                                            style: TextStyle(
                                                             fontSize: 16,
                                                             fontWeight: FontWeight.bold
                                                           ),),

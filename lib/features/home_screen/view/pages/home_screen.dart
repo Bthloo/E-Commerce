@@ -1,13 +1,8 @@
 import 'dart:ui';
-
-import 'package:b_commerce/features/home_screen/view/component/drawer_item.dart';
 import 'package:b_commerce/features/home_screen/viewmodel/appbar_viewmodel/app_bar_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../component/drawer_header_inside_widget.dart';
 import '../component/drawer_widget.dart';
 
 class HomeScreen extends StatelessWidget {

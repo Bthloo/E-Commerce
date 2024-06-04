@@ -1,8 +1,6 @@
-import 'package:b_commerce/core/general_components/color_helper.dart';
 import 'package:b_commerce/features/profile_screen/view/pages/edit_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../home_screen/view/component/drawer_header_inside_widget.dart';
 
 class ProfileHeader extends StatelessWidget {

@@ -34,22 +34,22 @@ class CategoryItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30.r),
                 border: Border.all(
                   color: isSelected ?
-                  const Color(0xff3A2C27) :
+                   Theme.of(context).colorScheme.onPrimary :
                    Colors.transparent,
                   width: 2.0,
                 ),
               ),
               child: CircleAvatar(
                 backgroundColor: isSelected ?
-                const Color(0xff3A2C27) :
-                const Color(0xffF3F3F3),
+                Theme.of(context).colorScheme.onPrimary :
+                Theme.of(context).colorScheme.inversePrimary,
                 radius: 25.r,
                 child: Icon(
                   icon,
                   size: 25.r,
                   color: isSelected ?
-                  const Color(0xffFFFFFF) :
-                  const Color(0xff9D9D9D)
+                   Theme.of(context).primaryColor :
+                  Theme.of(context).colorScheme.secondary
                   ,
                 ),
               ),
@@ -59,10 +59,11 @@ class CategoryItem extends StatelessWidget {
               title,
               style: TextStyle(
                 fontSize: 12,
-                fontWeight: FontWeight.w600,
+                fontWeight: isSelected ? FontWeight.bold :
+                FontWeight.w600,
                 color: isSelected ?
-                const Color(0xff3A2C27) :
-                const Color(0xff9D9D9D)
+                Theme.of(context).colorScheme.onPrimary :
+                Theme.of(context).colorScheme.secondary
                 ,
               ),
             )
