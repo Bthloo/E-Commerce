@@ -19,31 +19,32 @@ class HomeTab extends StatelessWidget {
       child: ListView(
         children: [
           SizedBox(height: 20.h),
+
           const CategoriesWidget(),
           SizedBox(height: 30.h),
           const ImageSliderAll(),
           SizedBox(height: 35.h),
-          BlocProvider(
-            create: (context) => BestSellingCubit()..getBestSelling(),
-            child: BlocBuilder<BestSellingCubit, BestSellingState>(
-              builder: (context, state) {
-                if(state is BestSellingLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }else if(state is BestSellingError) {
-                  return Center(child: Text(state.message),);
-                }else if(state is BestSellingLoaded) {
-                  return ProductsListview(
-                    title: "Best Selling",
-                    products: state.products,
-                  );
-                }else {
-                  return const SizedBox();
-                }
-              },
-            ),
-          ),
+          // BlocProvider(
+          //   create: (context) => BestSellingCubit()..getBestSelling(),
+          //   child: BlocBuilder<BestSellingCubit, BestSellingState>(
+          //     builder: (context, state) {
+          //       if(state is BestSellingLoading) {
+          //         return const Center(
+          //           child: CircularProgressIndicator(),
+          //         );
+          //       }else if(state is BestSellingError) {
+          //         return Center(child: Text(state.message),);
+          //       }else if(state is BestSellingLoaded) {
+          //         return ProductsListview(
+          //           title: "Best Selling",
+          //           products: state.products,
+          //         );
+          //       }else {
+          //         return const SizedBox();
+          //       }
+          //     },
+          //   ),
+          // ),
 
           // SizedBox(height: 30.h),
           // BlocProvider(
@@ -98,44 +99,7 @@ class HomeTab extends StatelessWidget {
 
 }
 
-List<CategoryItem> categoryItems = [
-  CategoryItem(
-    onTap: () {
-      debugPrint("dsds");
-    },
-    icon: Icons.male,
-    title: "Men",
-    index: 0,
-    isSelected: true,
-  ),
-  CategoryItem(
-    onTap: () {
 
-    },
-    icon: Icons.female,
-    title: "Women",
-    index: 1,
-    isSelected: false,
-  ),
-  CategoryItem(
-    onTap: () {
-
-    },
-    icon: CupertinoIcons.eyeglasses,
-    title: "Accessories",
-    index: 2,
-    isSelected: false,
-  ),
-  CategoryItem(
-    onTap: () {
-
-    },
-    icon: Icons.monitor,
-    title: "Electronics",
-    index: 3,
-    isSelected: false,
-  ),
-];
 
 List<ImageSliderItem> imagesSlider = [
   ImageSliderItem(

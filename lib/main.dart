@@ -1,3 +1,4 @@
+import 'package:b_commerce/features/product_from_category_screen/view/pages/products_from_category_screen.dart';
 import 'package:b_commerce/themeing/theme_data.dart';
 import 'package:b_commerce/features/home_screen/view/pages/home_screen.dart';
 import 'package:b_commerce/features/item_details_screen/view/pages/item_details_screen.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         designSize: const Size(375, 812),
         minTextAdapt: true,
         splitScreenMode: true,
+
         child: MaterialApp(
           title: 'Flutter Demo',
           theme: themeState is ThemeDark ? AppTheme.darkTheme : AppTheme
@@ -40,6 +42,7 @@ class MyApp extends StatelessWidget {
             HomeScreen.routeName: (context) => const HomeScreen(),
             ItemDetailsScreen.routeName: (context) => const ItemDetailsScreen(),
             EditProfileScreen.routeName: (context) => const EditProfileScreen(),
+            ProductsFromCategoryScreen.routeName: (context) => const ProductsFromCategoryScreen(),
           },
         ),
       );

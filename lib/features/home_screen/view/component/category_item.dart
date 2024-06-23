@@ -1,20 +1,24 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
 
 class CategoryItem extends StatelessWidget {
-   CategoryItem({
+   const CategoryItem({
     super.key,
     required this.onTap,
     required this.title,
-    required this.icon,
-    required this.isSelected,
-    required this.index,
+    required this.url,
+   // required this.icon,
+   // required this.isSelected,
+   // required this.index,
   });
  final void Function()? onTap;
  final String title;
- final IconData icon;
-  bool isSelected;
- final int index;
+ final String url;
+ //final IconData icon;
+ // bool isSelected;
+ //final int index;
 
 @override
   Widget build(BuildContext context) {
@@ -33,38 +37,75 @@ class CategoryItem extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.r),
                 border: Border.all(
-                  color: isSelected ?
-                   Theme.of(context).colorScheme.onPrimary :
-                   Colors.transparent,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                  // isSelected ?
+                  //  Theme.of(context).colorScheme.onPrimary :
+                  //  Colors.transparent,
                   width: 2.0,
                 ),
               ),
               child: CircleAvatar(
-                backgroundColor: isSelected ?
-                Theme.of(context).colorScheme.onPrimary :
-                Theme.of(context).colorScheme.inversePrimary,
+                backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                // isSelected ?
+                // Theme.of(context).colorScheme.onPrimary :
+                // Theme.of(context).colorScheme.inversePrimary,
                 radius: 25.r,
-                child: Icon(
-                  icon,
-                  size: 25.r,
-                  color: isSelected ?
-                   Theme.of(context).primaryColor :
-                  Theme.of(context).colorScheme.secondary
-                  ,
+               
+               // backgroundImage:
+                //CachedNetworkImageProvider(url),
+                child: ClipRRect(
+                  //clipBehavior: Clip.antiAlias,
+                  borderRadius: BorderRadius.circular(25.r),
+                  child: CachedNetworkImage(
+                    imageUrl: url,
+                   // height: 25.r,
+                   // width: 25.r,
+                    fit: BoxFit.cover,
+                    progressIndicatorBuilder: (context, url, progress) {
+                      return  CircleAvatar(
+                        child: Shimmer.fromColors(
+                            baseColor: Colors.grey,
+                            highlightColor: Colors.white,
+                            child: CircleAvatar(
+                              radius: 25.r,
+                              backgroundColor: Colors.grey,
+                            )
+                        ),
+                      );
+
+                    },
+                    errorWidget: (context, url, error) => const Icon(Icons.priority_high,color: Colors.white,),
+                  ),
                 ),
+
+                // Icon(
+                //   icon,
+                //   size: 25.r,
+                //   color: isSelected ?
+                //    Theme.of(context).primaryColor :
+                //   Theme.of(context).colorScheme.secondary
+                //   ,
+                // ),
               ),
             ),
             SizedBox(height: 10.h),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: isSelected ? FontWeight.bold :
-                FontWeight.w600,
-                color: isSelected ?
-                Theme.of(context).colorScheme.onPrimary :
-                Theme.of(context).colorScheme.secondary
-                ,
+            SizedBox(
+              width: 70.w,
+              child: Text(
+                title,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 12,
+                 // fontWeight: isSelected ? FontWeight.bold :
+                  //FontWeight.w600,
+                  color: Theme.of(context).colorScheme.onPrimary
+                  // isSelected ?
+                  // Theme.of(context).colorScheme.onPrimary :
+                  // Theme.of(context).colorScheme.secondary
+                  ,
+                ),
               ),
             )
           ],

@@ -1,4 +1,5 @@
 import 'package:b_commerce/core/models/product_item.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -98,9 +99,9 @@ static const String routeName = 'item_details_screen';
               pinned: true,
               flexibleSpace: FlexibleSpaceBar(
                 background: Hero(
-                  tag: "${args.id}${args.image}",
-                  child: Image.asset(
-                    args.image,
+                  tag: args.id,
+                  child: CachedNetworkImage(
+                    imageUrl:args.image,
                     width: double.infinity,
                     fit: BoxFit.fill,
                     height: 432.h,

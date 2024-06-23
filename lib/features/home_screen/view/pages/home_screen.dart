@@ -7,10 +7,7 @@ import '../component/drawer_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
   static const routeName = "home-screen";
-
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -29,7 +26,6 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.black.withOpacity(.3),
                     spreadRadius: 0,
                     blurRadius: 20,
-
                    // offset: const Offset(0, -1), // changes position of shadow
                   ),
                 ],
@@ -138,7 +134,9 @@ class HomeScreen extends StatelessWidget {
                   BottomAppBarCubit.get(context).titles[BottomAppBarCubit.get(context).currentTapIndex]
               ),
             ),
-            body: BottomAppBarCubit.get(context).tabs[BottomAppBarCubit.get(context).currentTapIndex],
+            body: Center(
+                child: BottomAppBarCubit.get(context).tabs[BottomAppBarCubit.get(context).currentTapIndex]
+            ),
           );
         },
       ),

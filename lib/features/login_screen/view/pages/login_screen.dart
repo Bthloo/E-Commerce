@@ -33,137 +33,146 @@ static const String routeName = 'login_screen';
          )
         ],
       ),
-      body:  Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 25.0.w),
-        child: SingleChildScrollView(
-          child: BlocProvider(
-  create: (context) => LoginCubit(),
-  child: BlocConsumer<LoginCubit, LoginState>(
-  listener: (context, state) {
-    if (state is LoginSuccess) {
-      buildShowToast("Login Success");
-      Navigator.pushReplacementNamed(
-          context,
-          HomeScreen.routeName
-      );
-    }else if (state is LoginFailure) {
-      DialogUtilities.showMessage(
-          context,
-        state.error,
-        nigaiveActionName: "OK"
-      );
-    }
-  },
-  builder: (context, state) {
-    return Form(
-      key: context.read<LoginCubit>().formKey,
-      child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Log into\nyour account',
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.bold,
-                    height: 2
-                ),
-                ),
-                SizedBox(height: 40.h),
-                CustomFormField(
-                    hintText: 'Email address',
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please enter your email';
-                      }
-                      return null;
-                    },
-                    controller: context.read<LoginCubit>().emailController,
-                ),
-                SizedBox(height: 20.h),
-                CustomFormField(
-                  hintText: 'Password',
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your email';
-                    }
-                    return null;
-                  },
-                  controller: context.read<LoginCubit>().passwordController,
-                ),
-                SizedBox(height: 28.h),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-
-                    onPressed: () {
-
-                    },
-                    child: Text("Forgot password?",
+      body:  Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxWidth:MediaQuery.of(context).size.width > 700 ||
+                MediaQuery.of(context).size.width >MediaQuery.of(context).size.height  ?
+            MediaQuery.of(context).size.width*.5 : MediaQuery.of(context).size.width
+          ),
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 25.0.w),
+            child: SingleChildScrollView(
+              child: BlocProvider(
+            create: (context) => LoginCubit(),
+            child: BlocConsumer<LoginCubit, LoginState>(
+            listener: (context, state) {
+              if (state is LoginSuccess) {
+          buildShowToast("Login Success");
+          Navigator.pushReplacementNamed(
+              context,
+              HomeScreen.routeName
+          );
+              }else if (state is LoginFailure) {
+          DialogUtilities.showMessage(
+              context,
+            state.error,
+            nigaiveActionName: "OK"
+          );
+              }
+            },
+            builder: (context, state) {
+              return Form(
+          key: context.read<LoginCubit>().formKey,
+          child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Log into\nyour account',
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        fontSize: 12.sp,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        height: 2
                     ),
-                  ),
-                ),
-                ),
-                SizedBox(height: 25.h),
-                Center(
-                  child: state is LoginLoading
-                      ? const CircularProgressIndicator()
-                      :
-                  ElevatedButton(
-                      onPressed: () {
-                        context.read<LoginCubit>().login();
+                    ),
+                    SizedBox(height: 40.h),
+                    CustomFormField(
+                        hintText: 'Email address',
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Please enter your email';
+                          }
+                          return null;
+                        },
+                        controller: context.read<LoginCubit>().emailController,
+                    ),
+                    SizedBox(height: 20.h),
+                    CustomFormField(
+                      hintText: 'Password',
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter your email';
+                        }
+                        return null;
                       },
-                      child: SizedBox(
-                        height: 51.h,
-                        width: 147.w,
-                        child: const Center(
-                          child: Text('LOGIN',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                             // color: const Color(0xffFFFFFF)
+                      controller: context.read<LoginCubit>().passwordController,
+                    ),
+                    SizedBox(height: 28.h),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+
+                        onPressed: () {
+
+                        },
+                        child: Text("Forgot password?",
+                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            fontSize: 12,
+                        ),
+                      ),
+                    ),
+                    ),
+                    SizedBox(height: 25.h),
+                    Center(
+                      child: state is LoginLoading
+                          ? const CircularProgressIndicator()
+                          :
+                      ElevatedButton(
+                          onPressed: () {
+                            context.read<LoginCubit>().login();
+                          },
+                          child: SizedBox(
+                            height: 51.h,
+                            width: 147.w,
+                            child: const Center(
+                              child: Text('LOGIN',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                 // color: const Color(0xffFFFFFF)
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("Don't have an account?",
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600
                       ),
                     ),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pushReplacementNamed(
-                              context,
-                              RegisterScreen.routeName
-                          );
-                        },
-                        child: Text('Sign Up',
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Don't have an account?",
                           style: Theme.of(context).textTheme.titleMedium!.copyWith(
                             fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.underline,
-                            decorationColor: Theme.of(context).primaryColorDark
+                            fontWeight: FontWeight.w600
                           ),
                         ),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(
+                                  context,
+                                  RegisterScreen.routeName
+                              );
+                            },
+                            child: Text('Sign Up',
+                              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Theme.of(context).primaryColorDark
+                              ),
+                            ),
+                        ),
+                      ],
                     ),
+
                   ],
                 ),
-
-              ],
+              );
+            },
+          ),
+          ),
             ),
-    );
-  },
-),
-),
+          ),
         ),
       ),
     );
