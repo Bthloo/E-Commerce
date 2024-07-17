@@ -9,6 +9,7 @@ class CategoryItem extends StatelessWidget {
     required this.onTap,
     required this.title,
     required this.url,
+
    // required this.icon,
    // required this.isSelected,
    // required this.index,
@@ -16,6 +17,7 @@ class CategoryItem extends StatelessWidget {
  final void Function()? onTap;
  final String title;
  final String url;
+
  //final IconData icon;
  // bool isSelected;
  //final int index;

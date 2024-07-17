@@ -1,9 +1,10 @@
 import 'package:b_commerce/features/home_screen/view/component/product_item.dart';
 import 'package:b_commerce/features/item_details_screen/view/pages/item_details_screen.dart';
+import 'package:b_commerce/features/product_from_category_screen/view/pages/products_from_category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/models/product_item.dart';
+import '../../../../core/models/ProductsFromCategoryModel.dart';
+import 'categories_wedgit.dart';
 
 
 
@@ -12,20 +13,20 @@ class ProductsListview extends StatelessWidget {
     super.key,
     required this.title,
     required this.products,
-    //required this.onShowAllPressed,
-    //required this.onItemPressed,
+
   });
 
   final String title;
-  final List<ProductItemModel> products;
-  //final void Function()? onShowAllPressed;
-  //final void Function()? onItemPressed;
+  final List<Products> products;
+
+
 
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(height: 20.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -37,20 +38,28 @@ class ProductsListview extends StatelessWidget {
               ),
             ),
             TextButton(
-              onPressed: (){
-
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                    ProductsFromCategoryScreen.routeName,
+                    arguments: ProductsFromCategoryArgument(
+                      name: title,
+                      products: products,
+                      id: "-99",
+                    )
+                );
               },
               child:  Text(
-                "Show All",
+                "See All",
                 style:  Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontSize: 16,
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.bold,
+                  color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(.6),
+
                 ),
               ),
             ),
           ],
         ),
-        SizedBox(height: 20.h),
         SizedBox(
           width: double.infinity,
           height: 250.h,
@@ -59,20 +68,15 @@ class ProductsListview extends StatelessWidget {
               return SizedBox(width: 10.w);
             },
             scrollDirection: Axis.horizontal,
-            itemCount: products.length,
+            itemCount: 5,
             itemBuilder: (context, index) {
               return InkWell(
                 borderRadius: BorderRadius.circular(10.r),
                 onTap: () {
                  Navigator.of(context).pushNamed(
                      ItemDetailsScreen.routeName,
-                   arguments: ProductItemModel(
-                       title: products[index].title,
-                       description: products[index].description,
-                       price: products[index].price,
-                       image: products[index].image,
-                        id: products[index].id
-                   )
+                   arguments:products[index],
+
                  );
                 },
                   child: Padding(
@@ -81,10 +85,11 @@ class ProductsListview extends StatelessWidget {
                         vertical: 5.0.h
                     ),
                     child: ProductItem(
-                        id: products[index].id,
-                        title:  products[index].title,
-                        image:  products[index].image,
-                        price:  products[index].price
+                        id: products[index].id.toString(),
+                        title:  products[index].title ?? "No Title",
+                        image:  products[index].thumbnail ?? "No Image",
+                        sale: products[index].discountPercentage!,
+                        price:  products[index].price!,
                     ),
                   )
               );

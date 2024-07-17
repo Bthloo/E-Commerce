@@ -1,3 +1,4 @@
+import 'package:b_commerce/features/home_screen/view/pages/all_categories_screen.dart';
 import 'package:b_commerce/features/product_from_category_screen/view/pages/products_from_category_screen.dart';
 import 'package:b_commerce/themeing/theme_data.dart';
 import 'package:b_commerce/features/home_screen/view/pages/home_screen.dart';
@@ -27,10 +28,10 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<ThemeCubit, ThemeState>(
   builder: (context, themeState) {
     return ScreenUtilInit(
-        designSize: const Size(375, 812),
+      designSize:  Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height),
+       // designSize: const Size(375, 812),
         minTextAdapt: true,
         splitScreenMode: true,
-
         child: MaterialApp(
           title: 'Flutter Demo',
           theme: themeState is ThemeDark ? AppTheme.darkTheme : AppTheme
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
             RegisterScreen.routeName: (context) => const RegisterScreen(),
             LoginScreen.routeName: (context) => const LoginScreen(),
             HomeScreen.routeName: (context) => const HomeScreen(),
+            AllCategoriesScreen.routeName: (context) => const AllCategoriesScreen(),
             ItemDetailsScreen.routeName: (context) => const ItemDetailsScreen(),
             EditProfileScreen.routeName: (context) => const EditProfileScreen(),
             ProductsFromCategoryScreen.routeName: (context) => const ProductsFromCategoryScreen(),

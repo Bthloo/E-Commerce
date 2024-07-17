@@ -6,7 +6,7 @@ sealed class GetCategoriesState {}
 final class GetCategoriesInitial extends GetCategoriesState {}
 final class GetCategoriesLoading extends GetCategoriesState {}
 final class GetCategoriesSuccess extends GetCategoriesState {
-  final List<Categories> categories;
+  final List<CategoryModel> categories;
 
   GetCategoriesSuccess(this.categories);
 }

@@ -2,8 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../pages/home_tab.dart';
+import 'image_slider_item.dart';
 
 class ImageSliderAll extends StatefulWidget {
   const ImageSliderAll({super.key});
@@ -73,3 +72,27 @@ class _ImageSliderAllState extends State<ImageSliderAll> {
     );
   }
 }
+List<ImageSliderItem> imagesSlider = [
+  ImageSliderItem(
+    title: "New Collection",
+    image: "assets/images/autmn_collection.png",
+    onTap: () {},
+  ),
+  ImageSliderItem(
+    title: "Summer Sale",
+    image: "assets/images/autmn_collection.png",
+    onTap: () {
+      debugPrint("Summer Sale");
+    },
+  ),
+  ImageSliderItem(
+    title: "Winter Sale",
+    image: "assets/images/autmn_collection.png",
+    onTap: () {},
+  ),
+  ImageSliderItem(
+    title: "Black Friday",
+    image: "assets/images/autmn_collection.png",
+    onTap: () {},
+  ),
+];

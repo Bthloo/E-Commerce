@@ -17,8 +17,6 @@ class HomeScreen extends StatelessWidget {
           return Scaffold(
             key: BottomAppBarCubit.get(context).scaffoldKey,
             drawer: const DrawerWidget(),
-           // extendBody: true,
-           // extendBodyBehindAppBar: true,
             bottomNavigationBar: Container(
               decoration: BoxDecoration(
                 boxShadow:  [
@@ -90,7 +88,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             appBar: AppBar(
-                //systemOverlayStyle: SystemUiOverlayStyle.dark,
               leading: Builder(
                 builder: (context) {
                   return IconButton(
@@ -107,14 +104,6 @@ class HomeScreen extends StatelessWidget {
                   );
                 }
               ),
-              // const ImageIcon(
-              //  // size: .1,
-              //   size: 3,
-              //   AssetImage(
-              //       "assets/icons/burger_icon.png",
-              //   ),
-              //   //size: 30,
-              // ),
               surfaceTintColor: Colors.transparent,
               backgroundColor: Colors.transparent,
               flexibleSpace: ClipRect(
