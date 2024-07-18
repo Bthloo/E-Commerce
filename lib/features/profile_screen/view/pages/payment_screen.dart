@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:u_credit_card/u_credit_card.dart';
-
-import '../../../../core/models/ProfileResponseModel.dart';
 import '../components/profile_card.dart';
 
 class PaymentScreen extends StatelessWidget {

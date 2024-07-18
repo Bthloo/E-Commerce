@@ -5,8 +5,6 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../home_screen/view/pages/home_screen.dart';
-import '../../../login_screen/view/pages/login_screen.dart';
-import '../../../login_screen/viewmodel/login_cubit.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -1,4 +1,3 @@
-import 'package:b_commerce/core/models/ProfileResponseModel.dart';
 import 'package:b_commerce/features/home_screen/view/pages/all_categories_screen.dart';
 import 'package:b_commerce/features/product_from_category_screen/view/pages/products_from_category_screen.dart';
 import 'package:b_commerce/features/profile_screen/view/pages/address_screen.dart';

@@ -1,4 +1,3 @@
-import 'package:b_commerce/core/general_components/build_show_toast.dart';
 import 'package:b_commerce/features/login_screen/view/pages/login_screen.dart';
 import 'package:b_commerce/features/login_screen/viewmodel/login_cubit.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import '../../../../themeing/theme_cubit.dart';
 import '../../../../themeing/theme_enum.dart';
-import 'drawer_header_inside_widget.dart';
 import 'drawer_item.dart';
 
 class DrawerWidget extends StatelessWidget {
