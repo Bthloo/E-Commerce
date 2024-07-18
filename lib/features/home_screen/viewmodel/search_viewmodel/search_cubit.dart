@@ -1,7 +1,7 @@
-import 'package:b_commerce/core/models/ProductsFromCategoryModel.dart';
-import 'package:bloc/bloc.dart';
+import 'package:b_commerce/core/models/products_from_category_model.dart';
 import 'package:dio/dio.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/api_manager/api_manager.dart';
 

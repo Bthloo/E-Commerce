@@ -2,7 +2,7 @@ import 'package:b_commerce/features/home_screen/view/component/custom_category_i
 import 'package:b_commerce/features/product_from_category_screen/view/pages/products_from_category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/models/CategoriesModel.dart';
+import '../../../../core/models/categories_model.dart';
 import '../component/categories_wedgit.dart';
 
 class AllCategoriesScreen extends StatelessWidget {

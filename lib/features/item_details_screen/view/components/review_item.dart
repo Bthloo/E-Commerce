@@ -1,4 +1,4 @@
-import 'package:b_commerce/core/models/ProductsFromCategoryModel.dart';
+import 'package:b_commerce/core/models/products_from_category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

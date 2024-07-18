@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../../core/models/ProductsFromCategoryModel.dart';
+import '../../../../core/models/products_from_category_model.dart';
 
 class ProductImagesSlider extends StatefulWidget {
   const ProductImagesSlider({super.key, required this.args});

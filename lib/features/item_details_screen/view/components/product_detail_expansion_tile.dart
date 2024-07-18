@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/general_components/custom_expansion_tile.dart';
-import '../../../../core/models/ProductsFromCategoryModel.dart';
+import '../../../../core/models/products_from_category_model.dart';
 
 class ProductDetailExpansionTile extends StatelessWidget {
   const ProductDetailExpansionTile({super.key,required this.args});

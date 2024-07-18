@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/api_manager/api_manager.dart';
-import '../../../../core/models/ProductsFromCategoryModel.dart';
+import '../../../../core/models/products_from_category_model.dart';
 
 part 'get_products_from_category_state.dart';
 

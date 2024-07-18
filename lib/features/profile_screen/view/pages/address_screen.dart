@@ -1,4 +1,4 @@
-import 'package:b_commerce/core/models/ProfileResponseModel.dart';
+import 'package:b_commerce/core/models/profile_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher_string.dart';

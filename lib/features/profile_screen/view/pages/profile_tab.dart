@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-import '../../../../core/models/ProfileResponseModel.dart';
+import '../../../../core/models/profile_response_model.dart';
 import '../../../login_screen/view/pages/login_screen.dart';
 import '../components/profile_card.dart';
 import '../components/profile_header.dart';

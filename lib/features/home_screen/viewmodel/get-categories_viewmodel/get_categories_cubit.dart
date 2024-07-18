@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/api_manager/api_manager.dart';
-import '../../../../core/models/CategoriesModel.dart';
+import '../../../../core/models/categories_model.dart';
 
 part 'get_categories_state.dart';
 
@@ -21,7 +21,7 @@ class GetCategoriesCubit extends Cubit<GetCategoriesState> {
       categories.add(CategoryModel.fromJson(element));
     }
     emit(GetCategoriesSuccess(categories));
-  } on SocketException catch (ex) {
+  } on SocketException{
     emit(GetCategoriesError( 'Check Your Internet'));
   }
   catch (ex) {

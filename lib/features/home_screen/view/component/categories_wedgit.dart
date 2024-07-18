@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-import '../../../../core/models/ProductsFromCategoryModel.dart';
+import '../../../../core/models/products_from_category_model.dart';
 import 'custom_category_item.dart';
 
 class CategoriesWidget extends StatefulWidget {

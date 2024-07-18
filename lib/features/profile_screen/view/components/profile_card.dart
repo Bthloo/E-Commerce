@@ -1,5 +1,5 @@
 import 'package:b_commerce/core/general_components/build_show_toast.dart';
-import 'package:b_commerce/core/models/ProfileResponseModel.dart';
+import 'package:b_commerce/core/models/profile_response_model.dart';
 import 'package:b_commerce/features/profile_screen/view/components/profile_list_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

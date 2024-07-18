@@ -3,7 +3,7 @@ import 'package:b_commerce/features/item_details_screen/view/pages/item_details_
 import 'package:b_commerce/features/product_from_category_screen/view/pages/products_from_category_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/models/ProductsFromCategoryModel.dart';
+import '../../../../core/models/products_from_category_model.dart';
 import 'categories_wedgit.dart';
 
 

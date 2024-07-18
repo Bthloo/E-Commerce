@@ -19,16 +19,18 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Future.delayed(const Duration(seconds: 2), () async{
       bool result = await InternetConnectionChecker().hasConnection;
-
-      if(result == true) {
-        Navigator.pushReplacementNamed(
-          context, HomeScreen.routeName,
-        );
-      } else {
-        Navigator.pushReplacementNamed(
-          context, NoInternetScreen.routeName,
-        );
+      if(mounted){
+        if(result == true) {
+          Navigator.pushReplacementNamed(
+            context, HomeScreen.routeName,
+          );
+        } else {
+          Navigator.pushReplacementNamed(
+            context, NoInternetScreen.routeName,
+          );
+        }
       }
+
 
 
     });

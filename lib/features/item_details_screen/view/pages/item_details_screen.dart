@@ -4,7 +4,7 @@ import 'package:b_commerce/features/login_screen/viewmodel/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/models/ProductsFromCategoryModel.dart';
+import '../../../../core/models/products_from_category_model.dart';
 import '../../../login_screen/view/pages/login_screen.dart';
 import '../components/product_detail_expansion_tile.dart';
 import '../components/product_images_slider.dart';

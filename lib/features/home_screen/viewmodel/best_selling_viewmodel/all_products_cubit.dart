@@ -1,7 +1,7 @@
 import 'package:b_commerce/core/api_manager/api_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/models/ProductsFromCategoryModel.dart';
+import '../../../../core/models/products_from_category_model.dart';
 
 part 'all_products_state.dart';
 

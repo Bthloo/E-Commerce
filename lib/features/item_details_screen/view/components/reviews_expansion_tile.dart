@@ -3,7 +3,7 @@ import 'package:b_commerce/features/item_details_screen/view/components/reviews_
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/general_components/custom_expansion_tile.dart';
-import '../../../../core/models/ProductsFromCategoryModel.dart';
+import '../../../../core/models/products_from_category_model.dart';
 
 class ReviewsExpansionTile extends StatelessWidget {
   const ReviewsExpansionTile({super.key,required this.reviews,this.rating});

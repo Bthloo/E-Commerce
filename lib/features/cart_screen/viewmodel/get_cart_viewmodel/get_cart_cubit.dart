@@ -1,9 +1,8 @@
 import 'package:b_commerce/core/api_manager/api_manager.dart';
-import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:meta/meta.dart';
-
-import '../../../../core/models/CartModel.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../core/models/cart_model.dart';
 
 part 'get_cart_state.dart';
 

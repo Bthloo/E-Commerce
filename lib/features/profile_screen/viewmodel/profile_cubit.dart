@@ -1,8 +1,8 @@
 import 'package:b_commerce/core/api_manager/api_manager.dart';
-import 'package:b_commerce/core/models/ProfileResponseModel.dart';
+import 'package:b_commerce/core/models/profile_response_model.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
