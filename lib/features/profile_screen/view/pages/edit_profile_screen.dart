@@ -1,12 +1,16 @@
 import 'package:b_commerce/core/general_components/custom_form_field.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../components/profile_header.dart';
 
 class EditProfileScreen extends StatelessWidget {
   const EditProfileScreen({super.key});
 static const String routeName = 'editProfileScreen';
   @override
   Widget build(BuildContext context) {
+    ProfileArgument argument = ModalRoute.of(context)!.settings.arguments as ProfileArgument;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -33,7 +37,11 @@ static const String routeName = 'editProfileScreen';
                     Container(
                       height: 96.h,
                       width: 96.w,
+                      
                       decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: CachedNetworkImageProvider(argument.imageUrl)
+                        ),
                           color: Colors.grey,
                           borderRadius: BorderRadius.circular(50.r)
                       ),
@@ -73,7 +81,7 @@ static const String routeName = 'editProfileScreen';
           
                        },
                        controller: TextEditingController(
-                         text: "Bassel"
+                         text: argument.firstName
                        )
                    ),
                  ),
@@ -90,12 +98,26 @@ static const String routeName = 'editProfileScreen';
           
                        },
                        controller: TextEditingController(
-                         text: "Alaa"
+                         text: argument.lastName
                        )
                    ),
                  ),
                ],
              ),
+              SizedBox(height: 30.w,),
+              CustomFormField(
+                  hintText: "User Name",
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter some text';
+                    }
+                    return null;
+
+                  },
+                  controller: TextEditingController(
+                      text: argument.username
+                  )
+              ),
               SizedBox(height: 30.w,),
               CustomFormField(
                   hintText: "Email",
@@ -107,7 +129,7 @@ static const String routeName = 'editProfileScreen';
           
                   },
                   controller: TextEditingController(
-                      text: "bassel@gmail.com"
+                      text: argument.email
                   )
               ),
               SizedBox(height: 30.w,),
@@ -124,7 +146,7 @@ static const String routeName = 'editProfileScreen';
           
                         },
                         controller: TextEditingController(
-                            text: "01111111111"
+                            text: argument.phone
                         )
                     ),
                   ),
@@ -141,7 +163,7 @@ static const String routeName = 'editProfileScreen';
                      ),
                      child: DropdownMenu(
                        controller: TextEditingController(
-                         text: "Male"
+                         text: argument.gender
                        ),
                       label:  Text(
                         "Gender",

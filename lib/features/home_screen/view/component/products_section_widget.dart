@@ -41,9 +41,9 @@ class ProductsSectionWidget extends StatelessWidget {
 
                               },
                               child:  Text(
-                                "Show All",
+                                "        ",
                                 style:  Theme.of(context).textTheme.titleMedium!.copyWith(
-                                    fontSize: 16,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.bold
                                 ),
                               ),
@@ -86,7 +86,7 @@ class ProductsSectionWidget extends StatelessWidget {
                 );
               }else if(state is AllProductsError){
                 return  Center(
-                  child: Text("Error : $state"),
+                  child: Text("Error : ${state.message}"),
                 );
               }else {
                 return const Center(

@@ -17,7 +17,14 @@ class ProductImagesSlider extends StatefulWidget {
   State<ProductImagesSlider> createState() => _ProductImagesSliderState();
 }
 
+
+
 class _ProductImagesSliderState extends State<ProductImagesSlider> {
+
+
+  TransformationController transformationController =
+  TransformationController();
+
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -25,55 +32,46 @@ class _ProductImagesSliderState extends State<ProductImagesSlider> {
         tag: "${widget.args.id}",
         child:
         widget.args.images!.isEmpty || widget.args.images?.length == 1 ?
-        InteractiveViewer(
-          alignment: Alignment.center,
-          boundaryMargin: const EdgeInsets.all(double.infinity),
-          child: CachedNetworkImage(
-            progressIndicatorBuilder: (context, url, progress) {
-              return Shimmer.fromColors(
-                  baseColor: Colors.grey[300]!,
-                  highlightColor: Colors.grey[100]!,
-                  child: Container(
-                    color: const Color(0xffF5F5F5),
-                    width: double.infinity,
-                    height: 432.h,
-                  )
-              );
+        CachedNetworkImage(
+          progressIndicatorBuilder: (context, url, progress) {
+            return Shimmer.fromColors(
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[100]!,
+                child: Container(
+                  color: const Color(0xffF5F5F5),
+                  width: double.infinity,
+                  height: 432.h,
+                )
+            );
 
-            },
-            imageUrl:widget.args.thumbnail!,
-            width: double.infinity,
-            fit: BoxFit.fill,
-            height: 432.h,
-          ),
+          },
+          imageUrl:widget.args.thumbnail!,
+          width: double.infinity,
+          fit: BoxFit.fill,
+          height: 432.h,
         )
             :Stack(
           alignment: AlignmentDirectional.bottomCenter,
           children: [
             CarouselSlider.builder(
                 itemBuilder: (context, index, realIndex) {
-                  return InteractiveViewer(
-                    scaleEnabled: true,
-                    alignment: Alignment.center,
-                    boundaryMargin: const EdgeInsets.all(double.infinity),
-                    child: CachedNetworkImage(
-                      progressIndicatorBuilder: (context, url, progress) {
-                        return Shimmer.fromColors(
-                            baseColor: Colors.grey[300]!,
-                            highlightColor: Colors.grey[100]!,
-                            child: Container(
-                              color: const Color(0xffF5F5F5),
-                              width: double.infinity,
-                              height: 432.h,
-                            )
-                        );
+                  return CachedNetworkImage(
+                    progressIndicatorBuilder: (context, url, progress) {
+                      return Shimmer.fromColors(
+                          baseColor: Colors.grey[300]!,
+                          highlightColor: Colors.grey[100]!,
+                          child: Container(
+                            color: const Color(0xffF5F5F5),
+                            width: double.infinity,
+                            height: 432.h,
+                          )
+                      );
 
-                      },
-                      imageUrl: widget.args.images![index],
-                      width: double.infinity,
-                      fit: BoxFit.contain,
-                      //height: 432.h,
-                    ),
+                    },
+                    imageUrl: widget.args.images![index],
+                    width: double.infinity,
+                    fit: BoxFit.contain,
+                    //height: 432.h,
                   );
                 },
                 itemCount: widget.args.images!.length,
@@ -98,34 +96,37 @@ class _ProductImagesSliderState extends State<ProductImagesSlider> {
                   pageSnapping: true,
                 )
             ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15.r),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-                child: Container(
-                  padding: const EdgeInsets.all(2),
-                  decoration: BoxDecoration(
-                   // color: Colors.transparent,
-                    color: Colors.grey.withOpacity(.3),
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
-                  child: DotsIndicator(
-                    dotsCount: widget.args.images?.length ?? 1,
-                    position: currentIndex,
+            Positioned(
+              bottom: 10.h,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15.r),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+                  child: Container(
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                     // color: Colors.transparent,
+                      color: Colors.grey.withOpacity(.3),
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: DotsIndicator(
+                      dotsCount: widget.args.images?.length ?? 1,
+                      position: currentIndex,
 
-                    decorator: DotsDecorator(
-                      color:  Colors.black,
-                      activeColor: Colors.black,
-                      //const Color(0xffF3F3F3),
-                      size: const Size(8.0, 8.0),
-                      activeSize: const Size(8.0, 8.0),
-                      activeShape: RoundedRectangleBorder(
-                        side: const BorderSide(
-                          color:  Colors.black,
-                          width: 1,
-                          strokeAlign: 5,
+                      decorator: DotsDecorator(
+                        color:  Colors.black,
+                        activeColor: Colors.black,
+                        //const Color(0xffF3F3F3),
+                        size: const Size(8.0, 8.0),
+                        activeSize: const Size(8.0, 8.0),
+                        activeShape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                            color:  Colors.black,
+                            width: 1,
+                            strokeAlign: 5,
+                          ),
+                          borderRadius: BorderRadius.circular(5.0),
                         ),
-                        borderRadius: BorderRadius.circular(5.0),
                       ),
                     ),
                   ),

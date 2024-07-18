@@ -15,7 +15,7 @@ AllProductsCubit() : super(AllProductsInitial());
       var response = await ApiManager.getAllProducts();
       emit(AllProductsLoaded(response.products??[]));
     } catch (e) {
-      emit(AllProductsError(e.toString()));
+      emit(AllProductsError("Please Check Your Internet"));
     }
   }
 

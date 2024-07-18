@@ -29,8 +29,8 @@ class CustomCategoryItem extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onPrimary,
               ),
               child: Center(
-                child: Text(title,style: const TextStyle(
-                  color: Colors.white,
+                child: Text(title,style:  TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
                   fontSize: 18,
                   fontWeight: FontWeight.bold
                 ),textAlign: TextAlign.center,),

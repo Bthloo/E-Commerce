@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'color_helper.dart';
@@ -10,7 +11,7 @@ Future<bool?> buildShowToast(String message) {
     timeInSecForIosWeb: 1,
 
     backgroundColor: ColorHelper.darkColor,
-    textColor: ColorHelper.mainColor,
+    textColor: Colors.white,
     fontSize: 15.0,
   );
 }

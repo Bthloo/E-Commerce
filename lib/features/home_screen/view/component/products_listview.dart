@@ -51,9 +51,9 @@ class ProductsListview extends StatelessWidget {
               child:  Text(
                 "See All",
                 style:  Theme.of(context).textTheme.titleMedium!.copyWith(
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
-                  color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(.6),
+                //  color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(.6),
 
                 ),
               ),

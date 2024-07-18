@@ -1,4 +1,5 @@
 import 'package:b_commerce/features/home_screen/view/component/products_section_widget.dart';
+import 'package:b_commerce/features/login_screen/viewmodel/login_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,6 +11,8 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint(LoginCubit.currentUserToken);
+    debugPrint(LoginCubit.currentUserId.toString());
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: ListView(

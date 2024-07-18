@@ -128,7 +128,7 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
                   children: [
                     Text(
                       "Categories",
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -142,9 +142,8 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
                       },
                       child: Text(
                         "See All",
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           fontSize: 18,
-                          color: Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(.6),
                           fontWeight: FontWeight.bold,
                         ),
                       ),

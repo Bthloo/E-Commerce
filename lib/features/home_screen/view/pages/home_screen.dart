@@ -8,6 +8,7 @@ import '../component/drawer_widget.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   static const routeName = "home-screen";
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -40,7 +41,8 @@ class HomeScreen extends StatelessWidget {
                 ),
 
                 child: BottomNavigationBar(
-                    elevation: 10000,
+                  landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
+                    elevation: 0,
                   showUnselectedLabels: false,
                   showSelectedLabels: false,
                   type: BottomNavigationBarType.fixed,

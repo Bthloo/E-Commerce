@@ -20,7 +20,7 @@ class RegisterScreen extends StatelessWidget {
                   HomeScreen.routeName
               );
             },
-            child: Text('Skip',
+            child: Text('Cancel',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontSize: 14,
                     fontWeight: FontWeight.w600

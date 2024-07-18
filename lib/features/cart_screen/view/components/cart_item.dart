@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,15 +8,20 @@ class CartItem extends StatelessWidget {
     required this.image,
     required this.title,
     required this.price,
-    required this.size,
-    required this.color,
+     this.size,
+     this.color,
+     required this.discount,
     required this.quantity,
+    required this.discountPercentage,
   });
 final String image;
 final String title;
-final String price;
-final String size;
-final String color;
+final num price;
+final num discount;
+   final num discountPercentage;
+
+final String? size;
+final String? color;
  int quantity;
   @override
   Widget build(BuildContext context) {
@@ -60,7 +66,7 @@ final String color;
                 color: Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(10),
                 image:  DecorationImage(
-                  image: AssetImage(image),
+                  image: CachedNetworkImageProvider(image),
                   fit: BoxFit.contain,
                 ),
               ),
@@ -80,19 +86,43 @@ final String color;
                       overflow: TextOverflow.ellipsis,
                     ),),
                   SizedBox(height: 10.h,),
-                   Text(
-                     price,
+                   Row(
+                     children: [
+                       Text(
+                         "-$discountPercentage%",
+                         style:
+                         Theme.of(context).textTheme.titleMedium!.copyWith(
+                           fontSize: 17,
+                           fontWeight: FontWeight.bold,
+                           color: Colors.red,
+                           overflow: TextOverflow.ellipsis,
+                         ),),
+                       SizedBox(width: 8.w,),
+                       Text(
+                         "$discount\$",
+                        style:
+                        Theme.of(context).textTheme.titleMedium!.copyWith(
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                          overflow: TextOverflow.ellipsis,
+                        ),),
+                     ],
+                   ),
+                  SizedBox(height: 3.h,),
+                  Text(
+                    "${price.ceilToDouble()}\$",
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                      decoration: TextDecoration.lineThrough,
                       overflow: TextOverflow.ellipsis,
                     ),),
-                  SizedBox(height: 3.h,),
-                   Text("Size: $size | Color: $color",
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: Color(0xff8A8A8F),
-                    ),),
+                   // Text("Size: $size | Color: $color",
+                   //  style: const TextStyle(
+                   //    fontSize: 12,
+                   //    color: Color(0xff8A8A8F),
+                   //  ),),
                 ],
               ),
             ),

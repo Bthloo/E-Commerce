@@ -1,4 +1,8 @@
 
+import 'dart:async';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,8 +23,11 @@ class GetCategoriesCubit extends Cubit<GetCategoriesState> {
       categories.add(CategoryModel.fromJson(element));
     }
     emit(GetCategoriesSuccess(categories));
-  } catch (ex) {
-     emit(GetCategoriesError('$ex'));
+  } on SocketException catch (ex) {
+    emit(GetCategoriesError( 'Check Your Internet'));
+  }
+  catch (ex) {
+     emit(GetCategoriesError('Check Your Internet'));
   }
   }
 }

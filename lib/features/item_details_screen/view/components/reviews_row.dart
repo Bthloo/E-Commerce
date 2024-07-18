@@ -16,7 +16,7 @@ final double? rating;
               Text(
                 "$rating",
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    fontSize: 40,
+                    fontSize: 35,
                     fontWeight: FontWeight.bold
                 ),
               ),

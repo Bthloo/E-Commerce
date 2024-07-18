@@ -136,7 +136,7 @@ class AppTheme{
        color: Colors.black,
        fontSize: 20,
      ),
-     backgroundColor: Colors.black,
+     backgroundColor: Colors.white,
      contentTextStyle: TextStyle(
          color: Colors.black
      ),
@@ -167,8 +167,13 @@ class AppTheme{
        ),
      ),
    ),
-   appBarTheme: const AppBarTheme(
-       systemOverlayStyle: SystemUiOverlayStyle.dark,
+
+   appBarTheme:  const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Colors.black,
+        statusBarIconBrightness: Brightness.dark,
+      ),
        iconTheme: IconThemeData(
          color: ColorHelper.mainColor,
        ),

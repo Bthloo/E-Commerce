@@ -8,9 +8,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginScreen extends StatelessWidget {
+import '../../../../core/general_components/color_helper.dart';
+
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 static const String routeName = 'login_screen';
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+
+  bool keepMeLogged = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +34,7 @@ static const String routeName = 'login_screen';
                     HomeScreen.routeName
                 );
              },
-             child: Text('Skip',
+             child: Text('Cancel',
                style: Theme.of(context).textTheme.titleMedium!.copyWith(
                fontSize: 14,
                fontWeight: FontWeight.w600
@@ -48,7 +59,7 @@ static const String routeName = 'login_screen';
             child: BlocConsumer<LoginCubit, LoginState>(
             listener: (context, state) {
               if (state is LoginSuccess) {
-          buildShowToast("Login Success");
+          buildShowToast(state.message);
           Navigator.pushReplacementNamed(
               context,
               HomeScreen.routeName
@@ -78,10 +89,10 @@ static const String routeName = 'login_screen';
                     ),
                     SizedBox(height: 40.h),
                     CustomFormField(
-                        hintText: 'Email address',
+                        hintText: 'User Name',
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Please enter your email';
+                            return 'Please enter your username';
                           }
                           return null;
                         },
@@ -92,11 +103,44 @@ static const String routeName = 'login_screen';
                       hintText: 'Password',
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'Please enter your email';
+                          return 'Please enter your username';
                         }
                         return null;
                       },
                       controller: context.read<LoginCubit>().passwordController,
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Row(
+                      children: [
+                        Checkbox(
+                          activeColor: ColorHelper.mainColor,
+                          side:  BorderSide(
+                            color:   Theme.of(context).colorScheme.onPrimary
+                          ),
+                          overlayColor: WidgetStatePropertyAll(
+                              Colors.white.withOpacity(.1)),
+                          checkColor: Theme.of(context).primaryColor,
+                          value: keepMeLogged,
+                          onChanged: (value) {
+                            setState(() {
+                              keepMeLogged = value!;
+                            });
+                          },
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Text(
+                          'keep Me Logged In',
+                          style: TextStyle(
+                            fontSize: 16.sp,
+                            color: Theme.of(context).colorScheme.onPrimary,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(height: 28.h),
                     Align(
@@ -120,7 +164,12 @@ static const String routeName = 'login_screen';
                           :
                       ElevatedButton(
                           onPressed: () {
-                            context.read<LoginCubit>().login();
+                            context.read<LoginCubit>().login(
+                              keepMeLogin: keepMeLogged,
+                              password:   context.read<LoginCubit>().passwordController.text,
+                              username: context.read<LoginCubit>().emailController.text,
+
+                            );
                           },
                           child: SizedBox(
                             height: 51.h,

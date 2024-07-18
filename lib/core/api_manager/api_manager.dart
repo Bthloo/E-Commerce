@@ -1,6 +1,10 @@
 
 
+import 'package:b_commerce/core/models/CartModel.dart';
+import 'package:b_commerce/core/models/ProfileResponseModel.dart';
+import 'package:b_commerce/features/login_screen/viewmodel/login_cubit.dart';
 import 'package:dio/dio.dart';
+import '../models/LoginResponseModel.dart';
 import '../models/ProductsFromCategoryModel.dart';
 
 
@@ -95,6 +99,56 @@ class ApiManager{
 //    debugPrint(response.toJson().toString());
 //    return response;
 //  }
+
+
+  static Future<LoginResponseModel>login({required String username, required String password})async{
+    var response = await dio.post(
+        '$baseUrl/user/login',
+        options: Options(
+            headers: {
+              'Content-Type': 'application/json'
+            }
+        ),
+        data: {
+          "username" : username,
+          "password" : password
+        }
+    );
+    LoginResponseModel responseModel = LoginResponseModel.fromJson(response.data);
+    return responseModel;
+  }
+
+
+  static Future<ProfileResponseModel>getUserProfile({required int id})async{
+    var response = await dio.get(
+      '$baseUrl/users/$id',
+    );
+
+    ProfileResponseModel responseModel = ProfileResponseModel.fromJson(response.data);
+
+    return responseModel;
+  }
+  static Future<CartModel>getCart()async{
+    var response = await dio.get(
+      '$baseUrl/carts/user/${LoginCubit.currentUserId}',
+    );
+
+    CartModel responseModel = CartModel.fromJson(response.data);
+
+    return responseModel;
+  }
+
+
+  static Future<ProductsFromCategoryModel>searchProducts({required String query})async{
+    var response = await dio.get(
+      '$baseUrl/products/search',
+      queryParameters: {
+        "q" : query
+      }
+    );
+ProductsFromCategoryModel responseModel = ProductsFromCategoryModel.fromJson(response.data);
+    return responseModel;
+  }
 
  static Future<List<dynamic>>getCategories()async{
    var response = await dio.get(

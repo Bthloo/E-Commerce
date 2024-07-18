@@ -37,7 +37,8 @@ final String id;
                       height: 182.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.r),
-                        color: const Color(0xffF5F5F5),
+                          color:Theme.of(context).colorScheme.inversePrimary
+                       // color: const Color(0xffF5F5F5),
                       ),
                       child: CachedNetworkImage(
                           imageUrl: image,
@@ -100,7 +101,8 @@ final String id;
                                 overflow: TextOverflow.ellipsis,
                                 fontWeight: FontWeight.bold,
                                 color: Theme.of(context).textTheme.titleMedium?.color?.withOpacity(.5),
-                                decoration: TextDecoration.lineThrough
+                                decoration: TextDecoration.lineThrough,
+                              decorationColor: Theme.of(context).textTheme.titleMedium?.color?.withOpacity(.5)
                             ),
                           ),
                         ),

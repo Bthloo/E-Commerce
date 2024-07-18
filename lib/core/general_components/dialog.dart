@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,20 +38,35 @@ class DialogUtilities {
     if (posstiveActionName != null) {
       actions.add(
           TextButton(
+            style: ButtonStyle(
+             overlayColor: WidgetStateProperty.all(
+                 defaultTargetPlatform == TargetPlatform.iOS ? Colors.transparent :
+                 Colors.grey.withOpacity(.5)
+             ),
 
+            ),
           onPressed: () {
             Navigator.pop(context);
             posstiveAction?.call();
           },
           child: Text(
             posstiveActionName,
-            style: const TextStyle(color: Colors.blue),
+            style: const TextStyle(
+                color: Colors.black,
+
+            ),
           )));
     }
     if (nigaiveActionName != null) {
       actions.add(TextButton(
-          style: const ButtonStyle(
-              foregroundColor: WidgetStatePropertyAll(Colors.red),
+          style:  ButtonStyle(
+              foregroundColor: const WidgetStatePropertyAll(Colors.black),
+                overlayColor: WidgetStateProperty.all(
+                    defaultTargetPlatform == TargetPlatform.iOS ? Colors.transparent :
+                    Colors.grey.withOpacity(.5)
+                ),
+
+
               ),
           onPressed: () {
             Navigator.pop(context);
