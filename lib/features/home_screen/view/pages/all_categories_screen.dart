@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:b_commerce/features/home_screen/view/component/custom_category_item.dart';
 import 'package:b_commerce/features/product_from_category_screen/view/pages/products_from_category_screen.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +14,21 @@ static const String routeName = 'AllCategoriesScreen';
   Widget build(BuildContext context) {
     List<CategoryModel> args = ModalRoute.of(context)!.settings.arguments as List<CategoryModel>;
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
+        flexibleSpace: ClipRect(
+          child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+              child: Container(color: Colors.transparent)),
+        ),
         title: const Text('All Categories'),
       ),
-      body: SingleChildScrollView(
-
-        child: Center(
+      body: ListView(
+        physics: const ClampingScrollPhysics(),
+        children: [
+          Center(
           child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.start,
             alignment: WrapAlignment.start,
@@ -34,7 +45,7 @@ static const String routeName = 'AllCategoriesScreen';
               }),
             )).toList(),
           ),
-        ),
+        ),]
       ),
     );
   }

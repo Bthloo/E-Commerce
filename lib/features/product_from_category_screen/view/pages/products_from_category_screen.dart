@@ -17,6 +17,7 @@ class ProductsFromCategoryScreen extends StatelessWidget {
         .settings
         .arguments as ProductsFromCategoryArgument;
     return Scaffold(
+      extendBodyBehindAppBar: true,
         appBar: AppBar(
           surfaceTintColor: Colors.transparent,
           backgroundColor: Colors.transparent,

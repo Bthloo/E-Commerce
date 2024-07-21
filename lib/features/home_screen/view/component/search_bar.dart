@@ -5,11 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductSearch extends SearchDelegate {
-  ProductSearch() : super(
+  //BuildContext context;
+  ProductSearch(BuildContext context) : super(
     searchFieldLabel: "Search",
     keyboardType: TextInputType.text,
+    searchFieldStyle:  TextStyle(
+     color: Theme.of(context).colorScheme.onPrimary,
+      fontSize: 18,
+    ),
+
     textInputAction: TextInputAction.search,
   );
+
+
 SearchCubit searchCubit = SearchCubit();
 @override
   get searchFieldLabel => query;

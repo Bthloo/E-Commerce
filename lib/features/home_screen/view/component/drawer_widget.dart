@@ -25,20 +25,12 @@ class DrawerWidget extends StatelessWidget {
         //backgroundColor: Colors.white,
         child: Column(
             children:   [
-              IconButton(
-                onPressed: (){
-                  Navigator.of(context).pop();
-                },
-                icon: const Icon(Icons.close),
-              ),
-              // const DrawerHeader(
-              //
-              //    // color: Colors.white
-              //   child: DrawerHeaderInsideWidget(
-              //       name: "Bassel Alaa",
-              //       email: "bassel@gmail.com",
-              //     imageUrl: "",
-              //   ),
+              SizedBox(height: 30.h,),
+              // IconButton(
+              //   onPressed: (){
+              //     Navigator.of(context).pop();
+              //   },
+              //   icon: const Icon(Icons.close),
               // ),
               DrawerItem(
                 onTap: (){},

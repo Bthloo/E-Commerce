@@ -48,6 +48,7 @@ class _CategoriesWidgetState extends State<CategoriesWidget> {
                              ),
                              TextButton(
                                onPressed: () {
+
                                },
                                child: Text(
                                  "See All",

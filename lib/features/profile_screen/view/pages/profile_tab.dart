@@ -83,7 +83,7 @@ class ProfileTab extends StatelessWidget {
       );
     }
     else if(state is ProfileSuccess){
-      return Column(
+      return ListView(
         children: [
           ProfileHeader(
             gender: state.profileResponseModel.gender!,

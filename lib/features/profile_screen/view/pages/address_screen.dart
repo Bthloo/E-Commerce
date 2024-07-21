@@ -1,3 +1,4 @@
+import 'package:b_commerce/core/general_components/build_show_toast.dart';
 import 'package:b_commerce/core/models/profile_response_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -75,13 +76,18 @@ static const String routeName = 'address_screen';
     final String googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude';
     final String appleMapsUrl = 'https://maps.apple.com/?q=$latitude,$longitude';
 
-    if (await canLaunchUrlString(googleMapsUrl)) {
-      await launchUrlString(googleMapsUrl);
-    } else if (await canLaunchUrlString(appleMapsUrl)) {
-      await launchUrlString(appleMapsUrl);
-    } else {
-      throw 'Could not launch $googleMapsUrl';
+    try{
+      if (await canLaunchUrlString(googleMapsUrl)) {
+        await launchUrlString(googleMapsUrl);
+      } else if (await canLaunchUrlString(appleMapsUrl)) {
+        await launchUrlString(appleMapsUrl);
+      } else {
+        throw 'Could not launch $googleMapsUrl';
+      }
+    } catch (e) {
+      buildShowToast('Error : $e');
     }
+
   }
 
 
