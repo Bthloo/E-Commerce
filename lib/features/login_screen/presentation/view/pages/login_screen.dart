@@ -2,13 +2,13 @@ import 'package:b_commerce/core/general_components/build_show_toast.dart';
 import 'package:b_commerce/core/general_components/custom_form_field.dart';
 import 'package:b_commerce/core/general_components/dialog.dart';
 import 'package:b_commerce/features/home_screen/view/pages/home_screen.dart';
-import 'package:b_commerce/features/login_screen/viewmodel/login_cubit.dart';
+import 'package:b_commerce/features/login_screen/presentation/cubit/login_cubit.dart';
 import 'package:b_commerce/features/register_screen/view/pages/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/general_components/color_helper.dart';
+import '../../../../../core/general_components/color_helper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

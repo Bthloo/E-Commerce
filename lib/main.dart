@@ -7,7 +7,6 @@ import 'package:b_commerce/features/splash_screen/view/pages/splash_screen.dart'
 import 'package:b_commerce/themeing/theme_data.dart';
 import 'package:b_commerce/features/home_screen/view/pages/home_screen.dart';
 import 'package:b_commerce/features/item_details_screen/view/pages/item_details_screen.dart';
-import 'package:b_commerce/features/login_screen/view/pages/login_screen.dart';
 import 'package:b_commerce/features/register_screen/view/pages/register_screen.dart';
 import 'package:b_commerce/themeing/theme_cubit.dart';
 import 'package:b_commerce/themeing/theme_enum.dart';
@@ -16,7 +15,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-import 'features/login_screen/viewmodel/login_cubit.dart';
+import 'features/login_screen/presentation/cubit/login_cubit.dart';
+import 'features/login_screen/presentation/view/pages/login_screen.dart';
 import 'features/profile_screen/view/pages/edit_profile_screen.dart';
 
 void main()async{
@@ -38,20 +38,6 @@ void main()async{
   })
       ]
   );
-  //
-  // await  const FlutterSecureStorage().read(key: 'token').then((value){
-  //   if (value != null) {
-  //     LoginCubit.currentUserToken = value;
-  //   }
-  //   debugPrint(LoginCubit.currentUserToken);
-  // });
-  // await  const FlutterSecureStorage().read(key: 'id').then((value){
-  //   if (value != null) {
-  //     LoginCubit.currentUserId = int.parse(value);
-  //   }
-  //   debugPrint("${LoginCubit.currentUserId}");
-  // });
-
   runApp(const MyApp());
 }
 

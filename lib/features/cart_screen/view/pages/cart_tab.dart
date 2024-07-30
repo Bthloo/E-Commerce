@@ -1,11 +1,10 @@
 import 'package:b_commerce/features/cart_screen/view/components/cart_item.dart';
 import 'package:b_commerce/features/cart_screen/viewmodel/get_cart_viewmodel/get_cart_cubit.dart';
-import 'package:b_commerce/features/login_screen/viewmodel/login_cubit.dart';
+import 'package:b_commerce/features/login_screen/presentation/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../login_screen/view/pages/login_screen.dart';
+import '../../../login_screen/presentation/view/pages/login_screen.dart';
 
 class CartTab extends StatelessWidget {
   const CartTab({super.key});

@@ -1,5 +1,4 @@
-import 'package:b_commerce/features/login_screen/view/pages/login_screen.dart';
-import 'package:b_commerce/features/login_screen/viewmodel/login_cubit.dart';
+import 'package:b_commerce/features/login_screen/presentation/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,6 +6,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import '../../../../themeing/theme_cubit.dart';
 import '../../../../themeing/theme_enum.dart';
+import '../../../login_screen/presentation/view/pages/login_screen.dart';
 import 'drawer_item.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -50,7 +50,6 @@ class DrawerWidget extends StatelessWidget {
               ),
               DrawerItem(
                 onTap: (){
-
                   if(LoginCubit.currentUserId == null ||  LoginCubit.currentUserToken == null){
                     Navigator.of(context).pushNamedAndRemoveUntil(
                         LoginScreen.routeName,

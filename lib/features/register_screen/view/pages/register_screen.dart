@@ -1,9 +1,9 @@
 import 'package:b_commerce/core/general_components/custom_form_field.dart';
-import 'package:b_commerce/features/login_screen/view/pages/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../home_screen/view/pages/home_screen.dart';
+import '../../../login_screen/presentation/view/pages/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});

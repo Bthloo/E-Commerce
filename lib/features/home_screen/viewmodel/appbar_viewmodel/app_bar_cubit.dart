@@ -2,7 +2,6 @@ import 'package:b_commerce/features/cart_screen/view/pages/cart_tab.dart';
 import 'package:b_commerce/features/home_screen/view/pages/home_tab.dart';
 import 'package:b_commerce/features/home_screen/view/pages/search_tab.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../profile_screen/view/pages/profile_tab.dart';

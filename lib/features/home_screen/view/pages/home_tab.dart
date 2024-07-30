@@ -1,5 +1,5 @@
 import 'package:b_commerce/features/home_screen/view/component/products_section_widget.dart';
-import 'package:b_commerce/features/login_screen/viewmodel/login_cubit.dart';
+import 'package:b_commerce/features/login_screen/presentation/cubit/login_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

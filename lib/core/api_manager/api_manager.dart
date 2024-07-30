@@ -2,7 +2,7 @@
 
 import 'package:b_commerce/core/models/cart_model.dart';
 import 'package:b_commerce/core/models/profile_response_model.dart';
-import 'package:b_commerce/features/login_screen/viewmodel/login_cubit.dart';
+import 'package:b_commerce/features/login_screen/presentation/cubit/login_cubit.dart';
 import 'package:dio/dio.dart';
 import '../models/login_response_model.dart';
 import '../models/products_from_category_model.dart';

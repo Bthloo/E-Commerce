@@ -1,11 +1,11 @@
-import 'package:b_commerce/features/login_screen/viewmodel/login_cubit.dart';
+import 'package:b_commerce/features/login_screen/presentation/cubit/login_cubit.dart';
 import 'package:b_commerce/features/profile_screen/viewmodel/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import '../../../../core/models/profile_response_model.dart';
-import '../../../login_screen/view/pages/login_screen.dart';
+import '../../../login_screen/presentation/view/pages/login_screen.dart';
 import '../components/profile_card.dart';
 import '../components/profile_header.dart';
 

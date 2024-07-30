@@ -4,9 +4,8 @@ import 'package:b_commerce/features/profile_screen/view/components/profile_list_
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
-import '../../../login_screen/view/pages/login_screen.dart';
-import '../../../login_screen/viewmodel/login_cubit.dart';
+import '../../../login_screen/presentation/cubit/login_cubit.dart';
+import '../../../login_screen/presentation/view/pages/login_screen.dart';
 import '../pages/address_screen.dart';
 import '../pages/payment_screen.dart';
 
